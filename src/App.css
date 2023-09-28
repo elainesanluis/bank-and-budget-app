@@ -1,9 +1,9 @@
-* {
-  background-color: #5c5cc1;
+body {
+  background-color: #fff;
   }
   
   h1 {
-    color: #dcd1e6;
+    color: #3c393e;
   }
   
   img {
@@ -19,7 +19,7 @@
     padding: 30px;
     border-radius: 10px;
     border: solid black;
-    background-color: #63b3fd;
+    background-color: #fff;
     display: grid;
   }
   
@@ -33,14 +33,14 @@
   
   .greetings {
     grid-area: 1 / 1 / 3 / 3;
-    background-color: #81cfef;
+    background-color: #ffff;  
     border: solid #525151;
     border-radius: 5px;
   }
   
   .budgetApp {
     grid-area: 3 / 1 / 5 / 5;
-    background-color: #81cfef;
+    background-color: #fff;
     border: solid #525151;
     border-radius: 5px;
   }
@@ -51,20 +51,61 @@
     border-radius: 5px;
   }
   
-  .createAccount {
-    background-color: #81cfef;
+  .createAccount, .addFeatures {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;  
     border: solid #525151;
     border-radius: 5px;
+    gap: 15px;
+    width: 280px;
   }
-  
-  .transactions{
-    background-color: #81cfef;  
-    border: solid #525151;
-    border-radius: 5px;
+
+  .create-ccount-button, .dashboard-container, .add-features-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .addFeatures {
-    background-color: #81cfef;
+    background-color: #fff;  
     border: solid #525151;
     border-radius: 5px;
+  }
+
+  .fa-solid {
+    font-size: 60px;
+    text-shadow: 3px 3px 10px gray;
+  }
+
+  .transactions, .userAccount {
+    background-color: #fff;  
+    border: solid #525151;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    gap: 15px;
+  }
+
+  .transaction-buttons {
+    display: flex;
+    gap: 5px;
+  }
+
+  .trans-button, .create-account-btn, .user-account-btn, .addfeatures-btn {
+    width: 130px;
+    height: 80px;
+    background-color: #fff;
+    border: black;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    color: rgb(179, 59, 59);
   }
