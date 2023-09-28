@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+* {
+  background-color: #5c5cc1;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  h1 {
+    color: #dcd1e6;
   }
-  to {
-    transform: rotate(360deg);
+  
+  img {
+    width: 100px;
+    float: left;
+    margin: 10px;
   }
-}
+  
+  .dashBoard {
+    margin-top: 150px;
+    margin-left: 280px;
+    margin-right: 280px;
+    padding: 30px;
+    border-radius: 10px;
+    border: solid black;
+    background-color: #63b3fd;
+    display: grid;
+  }
+  
+  .dashBoard {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 150px 150px 150px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  
+  .greetings {
+    grid-area: 1 / 1 / 3 / 3;
+    background-color: #81cfef;
+    border: solid #525151;
+    border-radius: 5px;
+  }
+  
+  .budgetApp {
+    grid-area: 3 / 1 / 5 / 5;
+    background-color: #81cfef;
+    border: solid #525151;
+    border-radius: 5px;
+  }
+  
+  .userAccount {
+    background-color: #81cfef;
+    border: solid #525151;
+    border-radius: 5px;
+  }
+  
+  .createAccount {
+    background-color: #81cfef;
+    border: solid #525151;
+    border-radius: 5px;
+  }
+  
+  .transactions{
+    background-color: #81cfef;  
+    border: solid #525151;
+    border-radius: 5px;
+  }
+  
+  .addFeatures {
+    background-color: #81cfef;
+    border: solid #525151;
+    border-radius: 5px;
+  }
