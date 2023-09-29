@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter as Router, Link, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AccountsPage from './Pages/AccountsPage';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';

@@ -26,19 +26,18 @@ function AccountsPage({ accountDetails }) {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(accountDetails) && accountDetails.length > 0 ? (
-            accountDetails.map((account, index) => (
-              <tr key={index}>
-                <td>{account.firstName}</td>
-                <td>{account.lastName}</td>
-                <td>{account.client1Balance}</td>
-              </tr>
-            ))
-          ) : (
+        {accountDetails && accountDetails.map((account) => (
+              <tr key={account.id}>
+              <td>{account.firstName}</td>
+              <td>{account.lastName}</td>
+              <td>{account.client1Balance}</td>
+            </tr>
+          ))}
+           
             <tr>
               <td colSpan="3">No accounts to display</td>
             </tr>
-          )}
+          
         </tbody>
       </table>
     </div>
