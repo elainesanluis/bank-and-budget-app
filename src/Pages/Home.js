@@ -18,7 +18,7 @@ function Home() {
           </div>
         </div>
         <div className="createAccount">Create Account
-          <div className='create-ccount-button dashboard-container'>
+          <div id='createAccount' className='create-ccount-button dashboard-container'>
             <Link to="/create-account">
               <button id='create-account-btn' className='create-account-btn'><i className="fa-solid fa-user-plus"></i></button>
             </Link>
@@ -36,7 +36,7 @@ function Home() {
         </div>
         <div className="addFeatures">Additional Features
           <div className='add-features-button'>
-            <button className='addfeatures-btn'><i className="fa-solid fa-gift"></i></button>
+            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift"></i></button>
           </div>
         </div>
         <div className="budgetApp">Budget App</div>
