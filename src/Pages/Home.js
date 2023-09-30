@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import './Home.css'
 
 function Home() {
   return (
@@ -39,7 +40,13 @@ function Home() {
             <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift"></i></button>
           </div>
         </div>
-        <div className="budgetApp">Budget App</div>
+        <div className="budgetApp">
+          <p className='expense-summary'>Expense Summary: Month of </p>
+          <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
+          <div className='last-month'>Last month </div>
+          <div className='latest-transactions'>Transactions</div>
+          <div className='categories'>Expense</div>
+        </div>
       </div>
     </div>
   );
