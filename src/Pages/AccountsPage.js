@@ -34,11 +34,7 @@ function AccountsPage({ accountDetails }) {
               <td>{account.client1Balance}</td>
             </tr>
           ))}
-           
-            <tr>
-              <td colSpan="3">No accounts to display</td>
-            </tr>
-          
+
         </tbody>
       </table>
     </div>
