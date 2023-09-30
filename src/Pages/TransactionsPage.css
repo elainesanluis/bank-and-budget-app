@@ -1,0 +1,23 @@
+.deposit-withdraw {
+    display: flex;
+    gap: 50px;
+    outline: none;
+    border: none;
+    background-color: none;
+    color: none;
+  }
+
+.deposit-withdraw-btn {
+    outline: none;
+    border: none;
+    background-color: none;
+    color: none;
+}
+
+.transactions-main {
+    margin: 80px;
+}
+
+#deposit-btn:hover, #withdraw-btn:hover {
+    color: rgb(179, 59, 59);
+}
