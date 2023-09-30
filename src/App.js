@@ -1,13 +1,16 @@
 
 import './App.css';
-import { BrowserRouter as Router, Link, NavLink, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AccountsPage from './Pages/AccountsPage';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
 import TransferPage from './Pages/TransferPage';
 import Home from './Pages/Home';
 
+
 function App() {
+  const [accountList, setAccountList] = useState([]);
   return (
     <Router>
     <Routes>
@@ -22,3 +25,11 @@ function App() {
 }
 
 export default App;
+export const accounts = [
+  { firstName: 'John', lastName: 'Doe', client1Balance: 1000 },
+  { firstName: 'Jane', lastName: 'Doe', client1Balance: 500 },
+];
+
+export const addAccount = (account) => {
+  accounts.push(account);
+};
