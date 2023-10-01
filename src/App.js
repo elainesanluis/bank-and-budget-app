@@ -20,16 +20,15 @@ function App() {
     { firstName: 'John', lastName: 'Doe', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date() },
     { firstName: 'Jane', lastName: 'Doe', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date() },
   ]);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [clientBalance, setClientBalance] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
 
 const addAccount = (accountDetails) => {
   const { firstName, lastName } = accountDetails;
-
-// Check if an account with the same person already exists
-if (accountList.some((account) => account.firstName === firstName && account.lastName === lastName)) {
-  // Display an error message or handle the duplicate person case as needed
-  console.error('An account with the same person already exists.');
-  return; // Prevent creating a duplicate account
-}
 
 // Generate a new account number by finding the last account number and incrementing it.
 const lastAccountNumber = accountList.length > 0 ? accountList[accountList.length - 1].accountNumber : '100112345679';
@@ -48,6 +47,11 @@ clientBalance: parseFloat(accountDetails.clientBalance),
 createdAt: new Date(),
 };
 setAccountList([...accountList, newAccount]);
+setFirstName('');
+setLastName('');
+setClientBalance('');
+setUserEmail('');
+setUserPassword('');
   };
 
 const handleDeposit = (accountName, amount) => {
@@ -104,7 +108,7 @@ const handleDeposit = (accountName, amount) => {
     <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/accounts" element={<AccountsPage accounts={accountList} />} />
-        <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} />} />
+        <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} />} />
         <Route path="/transactions" 
           element={
           <TransactionsPage 
