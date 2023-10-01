@@ -42,9 +42,11 @@ function Home() {
         </div>
         <div className="budgetApp">
           <p className='expense-summary'>Expense Summary: Month of </p>
+          <button className='add-transactions'>New Transaction</button>
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
           <div className='last-month'>Last month </div>
           <div className='latest-transactions'>Transactions</div>
+            {/* <div className='view-detailed'>View detailed</div> */}
           <div className='categories'>Expense</div>
         </div>
       </div>
