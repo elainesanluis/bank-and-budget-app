@@ -2,9 +2,9 @@
 import React from 'react';
 import './AccountsPage.css';
 import { Link } from 'react-router-dom';
-import { accounts } from '../App'; 
 
-function AccountsPage({ accountDetails }) {
+
+function AccountsPage({ accounts }) {
   return (
     <div>
       <div id='create-account-logo'>
@@ -23,7 +23,9 @@ function AccountsPage({ accountDetails }) {
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Deposit Amount</th>
+            <th>Account Balance</th>
+            <th>Account Number</th>
+            <th>Date Created</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +33,9 @@ function AccountsPage({ accountDetails }) {
             <tr key={index}>
               <td>{account.firstName}</td>
               <td>{account.lastName}</td>
-              <td>{account.client1Balance}</td>
+              <td>{account.clientBalance}</td>
+              <td>{account.accountNumber}</td>
+              <td>{account.createdAt.toLocaleDateString()}</td>
             </tr>
           ))}
 

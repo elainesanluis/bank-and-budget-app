@@ -2,14 +2,16 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addAccount } from '../App'; 
 
-function CreateAccountPage() {
+
+function CreateAccountPage({ addAccount }) {
   // Initialize state to hold submitted account details
   const [accountDetails, setAccountDetails] = useState({
     firstName: '',
     lastName: '',
-    client1Balance: '',
+    clientBalance: '',
+    userEmail: '',
+    userPassword: '',
   });
 
   // Handle form submission
@@ -22,7 +24,9 @@ function CreateAccountPage() {
     setAccountDetails({
       firstName: '',
       lastName: '',
-      client1Balance: '',
+      clientBalance: '',
+      userEmail: '',
+      userPassword: '',
     });
   };
 
@@ -78,22 +82,49 @@ function CreateAccountPage() {
           />{' '}
           <br />
           <input
-            id='client1Balance'
+            id='clientBalance'
             type='number'
-            name='client1Balance'
+            name='clientBalance'
             placeholder='Deposit Amount'
             min='500.00'
             pattern='^[0-9]+(\.[0-9]{2})?$'
             required
-            value={accountDetails.client1Balance}
+            value={accountDetails.clientBalance}
             onChange={(e) =>
               setAccountDetails({
                 ...accountDetails,
-                client1Balance: e.target.value,
+                clientBalance: e.target.value,
               })
             }
           />{' '}
           <br />
+          <input
+            id='userEmail'
+            type='email'
+            name='userEmail'
+            placeholder='Enter user email address'
+            required
+            value={accountDetails.userEmail}
+            onChange={(e) =>
+              setAccountDetails({
+                ...accountDetails,
+                userEmail: e.target.value,
+              })
+            }
+            />{' '}<br/>
+            <input 
+            id='userPassword'
+            name='userPassword'
+            placeholder='Enter user Password'
+            required
+            value={accountDetails.userPassword}
+            onChange={(e) =>
+              setAccountDetails({
+                ...accountDetails,
+                userPassword: e.target.value,
+              })
+            }
+            />{''}<br/>
           <button id='submitAccount' type='submit' name='submit' value='Submit'>
             Submit
           </button>
