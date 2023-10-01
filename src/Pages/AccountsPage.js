@@ -3,6 +3,7 @@ import React from 'react';
 import './AccountsPage.css';
 import { Link } from 'react-router-dom';
 import { accounts } from '../App'; 
+
 function AccountsPage({ accountDetails }) {
   return (
     <div>
