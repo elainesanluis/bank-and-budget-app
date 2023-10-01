@@ -13,31 +13,48 @@ import WithdrawFormPage from './Pages/WithdrawForm';
 
 function App() {
   const [accountList, setAccountList] = useState([
-    { firstName: 'John', lastName: 'Doe', clientBalance: 1000, accountNumber: 100112345678, createdAt: new Date() },
-    { firstName: 'Jane', lastName: 'Doe', clientBalance: 500, accountNumber: 100112345679, createdAt: new Date() },
+    { firstName: 'Doe', lastName: 'Adeer', clientBalance: 500, accountNumber: 100112345679, createdAt: new Date() },
+    { firstName: 'Afemale', lastName: 'Deer', clientBalance: 500, accountNumber: 100112345680, createdAt: new Date() },
+    { firstName: 'Rey', lastName: 'Adrop', clientBalance: 500, accountNumber: 100112345681, createdAt: new Date() },
+    { firstName: 'Ofgolden', lastName: 'Sun', clientBalance: 500, accountNumber: 100112345682, createdAt: new Date() },
+    { firstName: 'John', lastName: 'Doe', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date() },
+    { firstName: 'Jane', lastName: 'Doe', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date() },
   ]);
 
-  const addAccount = (accountDetails) => {
-    // Generate a new account number by finding the last account number and incrementing it.
-    const lastAccountNumber = accountList.length > 0 ? accountList[accountList.length - 1].accountNumber : '100112345679';
-    const newAccountNumber = (parseInt(lastAccountNumber) + 1);
+const addAccount = (accountDetails) => {
+  const { firstName, lastName } = accountDetails;
+
+// Check if an account with the same person already exists
+if (accountList.some((account) => account.firstName === firstName && account.lastName === lastName)) {
+  // Display an error message or handle the duplicate person case as needed
+  console.error('An account with the same person already exists.');
+  return; // Prevent creating a duplicate account
+}
+
+// Generate a new account number by finding the last account number and incrementing it.
+const lastAccountNumber = accountList.length > 0 ? accountList[accountList.length - 1].accountNumber : '100112345679';
+const newAccountNumber = (parseInt(lastAccountNumber) + 1);
     
-    const newAccount = {
-      accountNumber: newAccountNumber,
-      firstName: accountDetails.firstName,
-      lastName: accountDetails.lastName,
-      clientBalance: parseFloat(accountDetails.clientBalance),
-      createdAt: new Date(),
-    };
-    setAccountList([...accountList, newAccount]);
+// Check if the new account number already exists in the accountList
+while (accountList.some((account) => account.accountNumber === newAccountNumber)) {
+  newAccountNumber++; // Increment the account number until it's unique
+}
+
+const newAccount = {
+accountNumber: newAccountNumber,
+firstName: accountDetails.firstName,
+lastName: accountDetails.lastName,
+clientBalance: parseFloat(accountDetails.clientBalance),
+createdAt: new Date(),
+};
+setAccountList([...accountList, newAccount]);
   };
 
-  const handleDeposit = (accountName, amount) => {
-    const updatedAccounts = accountList.map((account) => {
-      if (account.firstName === accountName) {
-        return {
-          ...account,
-          clientBalance: account.clientBalance + amount,
+const handleDeposit = (accountName, amount) => {
+  const updatedAccounts = accountList.map((account) => {
+    if (account.firstName === accountName) {
+       return {
+        ...account, clientBalance: account.clientBalance + amount,
         };
       }
       return account;
@@ -82,8 +99,6 @@ function App() {
 
     };
   
-
-
   return (
     <Router>
     <Routes>

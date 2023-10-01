@@ -14,12 +14,15 @@ function CreateAccountPage({ addAccount }) {
     userPassword: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addAccount(accountDetails);
+    const isAccountAdded = addAccount(accountDetails);
 
+    if (isAccountAdded) {
     // Clear the form inputs
     setAccountDetails({
       firstName: '',
@@ -28,7 +31,11 @@ function CreateAccountPage({ addAccount }) {
       userEmail: '',
       userPassword: '',
     });
-  };
+  } else {
+// Display an error message for duplicate account
+setErrorMessage('An account with the same person already exists.');
+  }
+};
 
   return (
     <div>
@@ -130,6 +137,7 @@ function CreateAccountPage({ addAccount }) {
           </button>
         </form>
       </div>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
 }
