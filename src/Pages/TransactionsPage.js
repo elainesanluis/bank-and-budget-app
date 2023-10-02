@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './TransactionsPage.css';
 import DepositForm from './DepositForm';
 import WithdrawForm from './WithdrawForm';
-import { handleDeposit, handleWithdraw } from '../App'; 
 
 function TransactionsPage({accounts, onDeposit, onWithdraw}) {
   const [showDepositForm, setShowDepositForm] = useState(false);

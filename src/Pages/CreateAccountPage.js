@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import '../Pages/CreateAccountPage.css';
 
 function CreateAccountPage({ addAccount, accounts }) {
   // Initialize state to hold submitted account details
@@ -13,43 +13,31 @@ function CreateAccountPage({ addAccount, accounts }) {
     userEmail: '',
     userPassword: '',
   });
-
   const [errorMessage, setErrorMessage] = useState('');
-
+ 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if all input fields are empty
-    if (
-      !accountDetails.firstName &&
-      !accountDetails.lastName &&
-      !accountDetails.clientBalance &&
-      !accountDetails.userEmail &&
-      !accountDetails.userPassword
-    ) {
-      // If all fields are empty, return and do not submit
+     // Check if an account with the same first and last name already exists
+     const isDuplicate = accounts.some(
+      (account) =>
+        account.firstName.toUpperCase() === accountDetails.firstName.toUpperCase() &&
+        account.lastName.toUpperCase() === accountDetails.lastName.toUpperCase()
+    );
+
+    if (isDuplicate) {
+      setAccountDetails({
+        firstName: '',
+        lastName: '',
+        clientBalance: '',
+        userEmail: '',
+        userPassword: '',
+      })
+      setErrorMessage('An account with the same first name and last name already exists.');
       return;
     }
-    
-      const isAccountAdded = addAccount(accountDetails);
-
-      if (isAccountAdded) {
-        // Clear the form inputs
-        setAccountDetails({
-          firstName: '',
-          lastName: '',
-          clientBalance: '',
-          userEmail: '',
-          userPassword: '',
-        });
-        // Clear the error message if there was one
-        setErrorMessage('');
-      } 
-    
   };
-
-  
   return (
     <div>
       <div id='create-account-logo'>

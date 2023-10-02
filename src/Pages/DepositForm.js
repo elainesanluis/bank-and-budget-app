@@ -7,13 +7,6 @@ function DepositForm({ accounts, onDeposit }) {
   const [depositAmount, setDepositAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // const handleDeposit = () => {
-  //   if (selectedAccount && depositAmount >= 0) {
-  //     onDeposit(selectedAccount, parseFloat(depositAmount));
-  //     setSelectedAccount('');
-  //     setDepositAmount('');
-  //   }
-  // };
   const handleDeposit = () => {
     // Find the account object based on the entered account number
     const selectedAccount = accounts.find(

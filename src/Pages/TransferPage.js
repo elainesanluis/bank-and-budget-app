@@ -1,5 +1,4 @@
 // TransferPage.js
-
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
@@ -10,7 +9,6 @@ function TransferPage({accounts, handleTransferMoney  }) {
   const [transferAmount, setTransferAmount] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const handleTransfer = () => {
     if (!senderAccount || !receiverAccount || !transferAmount) {
       setErrorMessage('Please fill in all fields');
@@ -19,7 +17,7 @@ function TransferPage({accounts, handleTransferMoney  }) {
 // Convert sender and receiver account numbers to numbers
 const senderAccountNumber = parseInt(senderAccount);
 const receiverAccountNumber = parseInt(receiverAccount);
-
+//Checking if account number is not a valid number
 if (isNaN(senderAccountNumber) || isNaN(receiverAccountNumber)) {
   setErrorMessage('Invalid sender or receiver account');
   return;
@@ -32,9 +30,9 @@ if (!senderAccountObj || !receiverAccountObj) {
   setErrorMessage('Invalid sender or receiver account');
   return;
 }
-
-    const transferAmountFloat = parseFloat(transferAmount);
-    if (isNaN(transferAmountFloat) || transferAmountFloat <= 0) {
+//Ensures that the transferAmount is both a valid numeric value and greater than zero
+const transferAmountFloat = parseFloat(transferAmount);
+  if (isNaN(transferAmountFloat) || transferAmountFloat <= 0) {
       setErrorMessage('Invalid transfer amount');
       return;
     }
@@ -44,14 +42,14 @@ if (!senderAccountObj || !receiverAccountObj) {
       return;
     }
 
-    // Update sender and receiver account balances
-    const updatedSenderAccount = {
-      ...senderAccountObj,
+// Update sender and receiver account balances
+const updatedSenderAccount = {
+  ...senderAccountObj,
       clientBalance: senderAccountObj.clientBalance - transferAmountFloat,
     };
 
-    const updatedReceiverAccount = {
-      ...receiverAccountObj,
+const updatedReceiverAccount = {
+  ...receiverAccountObj,
       clientBalance: receiverAccountObj.clientBalance + transferAmountFloat,
     };
 
@@ -72,38 +70,28 @@ if (!senderAccountObj || !receiverAccountObj) {
     <br/>
       <h2>Transfer</h2>
       <div>
-        <label htmlFor="senderAccount">Select Sender Account: </label>
-        <select
+        <label htmlFor="senderAccount">Sender Account: </label>
+        <input
+        type='number'
           id="senderAccount"
           onChange={(e) => setSenderAccount(e.target.value)}
           value={senderAccount}
-        >
-          <option value="">Select an account</option>
-          {accounts.map((account) => (
-            <option key={account.accountNumber} value={account.accountNumber}>
-              {account.accountNumber}
-            </option>
-          ))}
-        </select>
+          placeholder='Enter sender account number'
+       />
       </div>
 
       <div>
-        <label htmlFor="receiverAccount">Select Receiver Account: </label>
-        <select
+        <label htmlFor="receiverAccount">Receiver Account: </label>
+        <input
+        type='number'
           id="receiverAccount"
           onChange={(e) => setReceiverAccount(e.target.value)}
           value={receiverAccount}
-        >
-          <option value="">Select an account</option>
-          {accounts.map((account) => (
-            <option key={account.accountNumber} value={account.accountNumber}>
-              {account.accountNumber}
-            </option>
-          ))}
-        </select>
+          placeholder='Enter receiver account number'
+        />
       </div>
       <div>
-        <label htmlFor="transferAmount">Enter Transfer Amount: </label>
+        <label htmlFor="transferAmount">Transfer Amount: </label>
         <input
           type="number"
           id="transferAmount"
