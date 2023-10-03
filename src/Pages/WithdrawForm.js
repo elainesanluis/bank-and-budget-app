@@ -7,7 +7,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
   const [showModal, setShowModal] = useState(false);
   const [transactionNumber, setTransactionNumber] = useState(1);
   const [accountNumber, setAccountNumber] = useState('');
-
+  const [succesMessage,setSuccessMessage] = useState('');
 
 
 
@@ -27,6 +27,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
 
       setAccountNumber('');
       setWithdrawAmount('');
+      setSuccessMessage('Withdrawal Successful!')
       setShowModal(true);
 
 
@@ -60,6 +61,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
         placeholder="Enter withdrawal amount"
       />
       <button id='withdraw-money' onClick={handleWithdraw}>Withdraw</button>
+      {succesMessage && <div className="success-message">{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );

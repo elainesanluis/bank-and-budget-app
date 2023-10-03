@@ -24,7 +24,7 @@ function DepositForm({ accounts, onDeposit }) {
       setAccountNumber('');
       setDepositAmount('');
       setErrorMessage('');
-      setSuccessMessage('Withdrawal Successful!')
+      setSuccessMessage('Deposit Successful!')
     } else {
       setErrorMessage('Please enter a valid deposit amount.');
     }

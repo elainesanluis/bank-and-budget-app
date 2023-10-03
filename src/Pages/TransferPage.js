@@ -72,7 +72,7 @@ const updatedReceiverAccount = {
       <div>
         <label htmlFor="senderAccount">Sender Account: </label>
         <input
-        type='number'
+        type='text'
           id="senderAccount"
           onChange={(e) => setSenderAccount(e.target.value)}
           value={senderAccount}
@@ -83,17 +83,17 @@ const updatedReceiverAccount = {
       <div>
         <label htmlFor="receiverAccount">Receiver Account: </label>
         <input
-        type='number'
+        type='text'
           id="receiverAccount"
           onChange={(e) => setReceiverAccount(e.target.value)}
           value={receiverAccount}
           placeholder='Enter receiver account number'
-        />
+        ></input>
       </div>
       <div>
         <label htmlFor="transferAmount">Transfer Amount: </label>
         <input
-          type="number"
+          type="text"
           id="transferAmount"
           value={transferAmount}
           onChange={(e) => setTransferAmount(e.target.value)}
