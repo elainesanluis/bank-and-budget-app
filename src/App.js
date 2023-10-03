@@ -7,7 +7,7 @@ import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
 import TransferPage from './Pages/TransferPage';
 import Home from './Pages/Home';
-import NewTransactions-BudgetApp from './Pages/NewTransactions-BudgetApp'
+import NewTransactions from './Pages/NewTransactions-BudgetApp'
 
 
 function App() {

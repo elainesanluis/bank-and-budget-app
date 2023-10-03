@@ -1,4 +1,5 @@
 import React from 'react';
+import NewTransactions from './NewTransactions-BudgetApp';
 import { Link, NavLink } from 'react-router-dom';
 import './Home.css'
 
@@ -42,7 +43,9 @@ function Home() {
         </div>
         <div className="budgetApp">
           <p className='expense-summary'>Expense Summary: Month of </p>
+          <Link to="/new-transactions">
           <button className='add-transactions'>New Transaction</button>
+          </Link>
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
           <div className='last-month'>Last month </div>
           <div className='latest-transactions'>
