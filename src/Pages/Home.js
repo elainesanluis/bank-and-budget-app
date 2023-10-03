@@ -1,9 +1,24 @@
-import React from 'react';
-import NewTransactions from './NewTransactions-BudgetApp';
+import React, { useState, useEffect} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Home.css'
 
 function Home() {
+
+  const [currentMonthYear, setCurrentMonthYear] = useState('');
+
+  // Function to get the current month and year
+  const getCurrentMonthYear = () => {
+    const currentDate = new Date();
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+    const currentYear = currentDate.getFullYear();
+    return `${currentMonth} ${currentYear}`;
+  };
+
+  useEffect(() => {
+    // Update the current month and year when the component mounts
+    setCurrentMonthYear(getCurrentMonthYear());
+  }, []);
+
   return (
     <div className="mainPage">
       <Link to="/">
@@ -42,7 +57,7 @@ function Home() {
           </div>
         </div>
         <div className="budgetApp">
-          <p className='expense-summary'>Expense Summary: Month of </p>
+          <p className='expense-summary'>Expense Summary: <strong> Month of {currentMonthYear} </strong> </p>
           <Link to="/new-transactions">
           <button className='add-transactions'>New Transaction</button>
           </Link>
