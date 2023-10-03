@@ -5,14 +5,16 @@ import './NewTransactions-Budgetapp.css';
 export default function NewTransactions({ onAddTransaction }) {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
+  const [owner, setOwner] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newTransaction = {
-      id: Math.floor(Math.random() * 1000000), // Generate a unique ID (you may want to use a library for this)
+      id: Math.floor(Math.random() * 1000000), // Generate a unique ID (may use a library for this)
       text,
       amount: +amount, // Convert to a number
+      owner,
     };
 
     onAddTransaction(newTransaction);
@@ -20,6 +22,7 @@ export default function NewTransactions({ onAddTransaction }) {
     // Clear the input fields
     setText('');
     setAmount('');
+    setOwner('');
   };
 
   return (
@@ -61,6 +64,17 @@ export default function NewTransactions({ onAddTransaction }) {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount..."
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="owner">Owner/Payee: </label>
+          <input
+            type="text"
+            id="owner"
+            value={owner}
+            onChange={(e) => setOwner(e.target.value)}
+            placeholder="Enter text..."
             required
           />
         </div>
