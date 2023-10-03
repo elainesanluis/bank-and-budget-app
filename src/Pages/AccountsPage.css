@@ -1,8 +1,11 @@
-
-table {
+.account-container {
+display: flex;
+justify-content: center;
+align-items: center;
 position: absolute;
-top: 35%;
-left: 5%;
+top: 60%;
+left: 50%;
+transform: translate(-50%, -50%); 
 }
 
 table, th, td {
@@ -13,11 +16,42 @@ table, th, td {
 th {
     background-color: rgb(179, 59, 59);
     color: whitesmoke;
-    text-align: center;
 }
 
 th, td {
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
+    text-align: center;
+}
+
+.edit-button {
+    background-color: white;
+    outline: none;
+    border: white;
+}
+
+.fa-pencil {
+    font-size: 25px;
+    outline: none;
+}
+
+table {
+    width: 1000px;
+}
+
+.accountspage-add-user {
+    position: absolute;
+    top: 25%;
+    right: 8%;
+    color:  rgb(179, 59, 59);
+    font-size: 40px;
+    background-color: white;
+    border: white;
+    
+}
+
+.fa-user-plus {
+    /* text-shadow: 1px 7px 10px black; */
+    text-shadow: 3px 5px 10px rgb(30, 28, 28);
 }

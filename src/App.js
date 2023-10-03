@@ -103,7 +103,7 @@ return (
     <Router>
     <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/accounts" element={<AccountsPage accounts={accountList} />} />
+        <Route path="/accounts" element={<AccountsPage accounts={accountList} updateAccountList={setAccountList}/>} />
         <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} errorMessage={errorMessage}/>} />
         <Route path="/transactions" 
           element={

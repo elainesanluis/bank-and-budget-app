@@ -1,5 +1,6 @@
 // WithdrawForm.js
 import React, { useState } from 'react';
+import '../components/layout.css';
 
 function WithdrawForm({ accounts, onWithdraw }) {
   const [withdrawAmount, setWithdrawAmount] = useState('');

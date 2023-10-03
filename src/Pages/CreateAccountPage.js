@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Pages/CreateAccountPage.css';
+import '../components/layout.css';
 
 function CreateAccountPage({ addAccount, accounts }) {
   // Initialize state to hold submitted account details
@@ -36,7 +37,8 @@ function CreateAccountPage({ addAccount, accounts }) {
         userEmail: '',
         userPassword: '',
       })
-      setErrorMessage('An account with the same name or email already exists.');
+      setErrorMessage('An account with the same name or email already exists. Please try again');
+      setSuccessMessage('');
       return;
     }
 
@@ -53,6 +55,7 @@ function CreateAccountPage({ addAccount, accounts }) {
       userPassword: '',
     });
     setSuccessMessage('Account has been created successfully.')
+    setErrorMessage('');
   }
   };
   return (
@@ -161,7 +164,7 @@ function CreateAccountPage({ addAccount, accounts }) {
           </button>
         </form>
       </div>
-      {succesMessage && <div className="error-message">{succesMessage}</div>}
+      {succesMessage && <div className="success-message">{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );

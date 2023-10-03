@@ -2,8 +2,8 @@ h2 {
     position: absolute;
     top: 20%;
     left: 5%;
-    color:  rgb(179, 59, 59);;
-    text-shadow: 1px 3px 3px black;
+    color:  rgb(179, 59, 59);
+    text-shadow: 3px 5px 10px rgb(30, 28, 28);
     font-size: 40px;
 }
 
@@ -14,4 +14,10 @@ h2 {
 
 ::placeholder {
     text-align: center;
+}
+
+.error-message, .success-message {
+position: absolute;
+bottom: 15%;
+left: 5%;
 }
