@@ -20,26 +20,62 @@
 
   .expense-overview {
     grid-area: 2 / 1 / 2 / 1;
-    border: solid #525151;
+    border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
+    text-align: center;
   }
 
   .latest-transactions {
     grid-area: 2 / 2 / 4 / 2;
-    border: solid #525151;
+    border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
+    text-align: center;
+    display: grid;
   }
+
+  .latest-transactions {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20px 170px 20px;
+    row-gap: 1px;
+    padding: 1px;
+    align-content: start;
+  }
+
+
+  .title-transactions {
+    /* border: 0.5px solid rgb(187, 184, 184); */
+    grid-area: 1 / 1 / 1 / 2;
+
+  }
+
+
+  .tranx-list {
+    /* border: 0.5px solid rgb(187, 184, 184); */
+    grid-area: 2 / 1 / 3 / 2;
+
+  }
+
+
+  .view-detailed {
+    /* border: 0.5px solid rgb(187, 184, 184); */
+    grid-area: 3 / 1 / 4 / 2;
+
+  }
+
 
   .categories {
     grid-area: 2 / 3 / 4 / 3;
-    border: solid #525151;
+    border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
+    text-align: center;
   }
 
   .last-month {
     grid-area: 3 / 1 / 3 / 1;
-    border: solid #525151;
+    border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
+    text-align: center;
   }
 
   .add-transactions {

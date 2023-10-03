@@ -7,6 +7,7 @@ import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
 import TransferPage from './Pages/TransferPage';
 import Home from './Pages/Home';
+import NewTransactions-BudgetApp from './Pages/NewTransactions-BudgetApp'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/create-account" element={<CreateAccountPage />} />
         <Route path="/transactions" element={<TransactionsPage />} />
         <Route path="/transfer" element={<TransferPage />} />
+        <Route path="/new-transactions" element={<NewTransactions />} />
     </Routes>
     </Router>
   );
