@@ -14,7 +14,8 @@ function CreateAccountPage({ addAccount, accounts }) {
     userPassword: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
- 
+  const [succesMessage, setSuccessMessage] = useState('');
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +51,7 @@ function CreateAccountPage({ addAccount, accounts }) {
       userEmail: '',
       userPassword: '',
     });
+    setSuccessMessage('Account has been created successfully.')
   }
   };
   return (
@@ -152,6 +154,7 @@ function CreateAccountPage({ addAccount, accounts }) {
           </button>
         </form>
       </div>
+      {succesMessage && <div className="error-message">{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
