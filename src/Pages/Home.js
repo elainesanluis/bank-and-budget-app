@@ -47,7 +47,7 @@ function Home() {
           <button className='add-transactions'>New Transaction</button>
           </Link>
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
-          <div className='last-month'>Last month </div>
+          <div className='wallet'>Wallets</div>
           <div className='latest-transactions'>
             <p className='title-transactions'>Transactions</p>
             <div className='tranx-list'></div>

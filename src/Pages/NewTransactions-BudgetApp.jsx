@@ -1,9 +1,8 @@
-// TransactionsPage.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NewTransactions-Budgetapp.css';
 
-function NewTransactions({ onAddTransaction }) {
+export default function NewTransactions({ onAddTransaction }) {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
 
@@ -25,13 +24,29 @@ function NewTransactions({ onAddTransaction }) {
 
   return (
     <div>
-      <h3>Add New Transaction</h3>
+    <div id='create-account-logo'>
+      <Link to="/">
+        <img
+          className='bankLogo'
+          src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
+          alt='Bank Logo'
+        />
+      </Link>
+      <h1>Bank of Avion School of the Philippines</h1>
+    </div>
+    <br />
+    <br />
+    <br />
+
+      <h3>New Transaction</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-control">
-          <label htmlFor="text">Text</label>
+        <button className="income-budget">INCOME</button>
+        <button className="expense-budget">EXPENSE</button><br></br>
+          <label htmlFor="text">Name of : </label>
           <input
             type="text"
-            id="text"
+            id="name-of-tranx"
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Enter text..."
@@ -39,7 +54,7 @@ function NewTransactions({ onAddTransaction }) {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="amount">Amount (negative for expense, positive for income)</label>
+          <label htmlFor="amount">Amount: </label>
           <input
             type="number"
             id="amount"
@@ -54,6 +69,4 @@ function NewTransactions({ onAddTransaction }) {
     </div>
   );
 }
-
-export default NewTransactions;
 
