@@ -13,12 +13,12 @@ import WithdrawFormPage from './Pages/WithdrawForm';
 
 function App() {
   const [accountList, setAccountList] = useState([
-    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 500, accountNumber: 100112345679, createdAt: new Date() },
-    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 500, accountNumber: 100112345680, createdAt: new Date() },
-    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 500, accountNumber: 100112345681, createdAt: new Date() },
-    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 500, accountNumber: 100112345682, createdAt: new Date() },
-    { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date() },
-    { firstName: 'JOHN', lastName: 'DOE', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date() },
+    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 500, accountNumber: 100112345679, createdAt: new Date(), userEmail: 'DOEADEER@GMAIL.COM' },
+    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 500, accountNumber: 100112345680, createdAt: new Date(), userEmail: 'AFEMALEDEER@GMAIL.COM'},
+    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 500, accountNumber: 100112345681, createdAt: new Date(), userEmail: 'RAYADROP@GMAIL.COM'},
+    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 500, accountNumber: 100112345682, createdAt: new Date(), userEmail: 'OFGOLDENSUN@GMAIL.COM'},
+    { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date(), userEmail: 'JANEDOE@GMAIL.COM'},
+    { firstName: 'JOHN', lastName: 'DOE', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
   ]);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -26,6 +26,7 @@ const addAccount = (accountDetails) => {
 // Convert input names to uppercase for case-insensitive comparison
 const firstNameUpper = accountDetails.firstName.toUpperCase();
 const lastNameUpper = accountDetails.lastName.toUpperCase();
+const userEmailUpper = accountDetails.userEmail.toUpperCase();
 
 // Generate a new account number by finding the last account number and incrementing it.
 const lastAccountNumber = accountList.length > 0 ? accountList[accountList.length - 1].accountNumber : '100112345679';
@@ -42,6 +43,7 @@ firstName: firstNameUpper,
 lastName: lastNameUpper,
 clientBalance: parseFloat(accountDetails.clientBalance),
 createdAt: new Date(),
+userEmail: userEmailUpper,
 };
 
 setAccountList([...accountList, newAccount]);

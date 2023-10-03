@@ -26,6 +26,7 @@ function AccountsPage({ accounts }) {
             <th>Account Balance</th>
             <th>Account Number</th>
             <th>Date Created</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@ function AccountsPage({ accounts }) {
               <td>{account.clientBalance}</td>
               <td>{account.accountNumber}</td>
               <td>{account.createdAt.toLocaleDateString()}</td>
+              <td>{account.userEmail}</td>
             </tr>
           ))}
 

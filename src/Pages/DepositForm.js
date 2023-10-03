@@ -6,6 +6,7 @@ function DepositForm({ accounts, onDeposit }) {
   const [accountNumber, setAccountNumber] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [succesMessage, setSuccessMessage] = useState('');
 
   const handleDeposit = () => {
     // Find the account object based on the entered account number
@@ -23,6 +24,7 @@ function DepositForm({ accounts, onDeposit }) {
       setAccountNumber('');
       setDepositAmount('');
       setErrorMessage('');
+      setSuccessMessage('Withdrawal Successful!')
     } else {
       setErrorMessage('Please enter a valid deposit amount.');
     }
@@ -32,17 +34,6 @@ function DepositForm({ accounts, onDeposit }) {
   return (
     <div>
       <h3>Deposit</h3>
-      {/* <select
-        value={selectedAccount}
-        onChange={(e) => setSelectedAccount(e.target.value)}
-      >
-        <option value="">Select an account</option>
-        {accounts.map((account, index) => (
-          <option key={index} value={account.firstName}>
-            {account.firstName} {account.lastName}
-          </option>
-        ))}
-      </select> */}
 <input
         type="number"
         value={accountNumber}
@@ -56,6 +47,7 @@ function DepositForm({ accounts, onDeposit }) {
         placeholder="Enter deposit amount"
       />
       <button id='deposit-money' onClick={handleDeposit}>Deposit</button>
+      {succesMessage && <div className='success-manage'>{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );

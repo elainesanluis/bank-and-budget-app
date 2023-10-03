@@ -24,7 +24,8 @@ function CreateAccountPage({ addAccount, accounts }) {
      const isDuplicate = accounts.some(
       (account) =>
         account.firstName.toUpperCase() === accountDetails.firstName.toUpperCase() &&
-        account.lastName.toUpperCase() === accountDetails.lastName.toUpperCase()
+        account.lastName.toUpperCase() === accountDetails.lastName.toUpperCase() ||
+        account.userEmail.toUpperCase() === accountDetails.userEmail.toUpperCase()
     );
 
     if (isDuplicate) {
@@ -35,7 +36,7 @@ function CreateAccountPage({ addAccount, accounts }) {
         userEmail: '',
         userPassword: '',
       })
-      setErrorMessage('An account with the same first name and last name already exists.');
+      setErrorMessage('An account with the same name or email already exists.');
       return;
     }
 

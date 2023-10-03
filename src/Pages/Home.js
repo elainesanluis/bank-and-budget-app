@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -29,9 +29,9 @@ function Home() {
             <Link to="/transactions">
               <button id="deposit-withdraw-btn" className='trans-button'><i className="fa-solid fa-wallet"></i>Deposit/Withdraw</button>
             </Link>
-            <NavLink to="/transfer">
+            <Link to="/transfer">
               <button id="transfer-btn" className='trans-button'><i className="fa-solid fa-money-bill-transfer"></i>Transfer</button>
-            </NavLink>
+            </Link>
           </div>
         </div>
         <div className="addFeatures">Additional Features
