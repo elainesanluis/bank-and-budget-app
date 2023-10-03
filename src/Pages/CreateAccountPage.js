@@ -37,6 +37,20 @@ function CreateAccountPage({ addAccount, accounts }) {
       setErrorMessage('An account with the same first name and last name already exists.');
       return;
     }
+
+  // Call the addAccount function to add the new account
+  const accountAdded = addAccount(accountDetails);
+
+  // Check if the account was added successfully, and clear the form if it was
+  if (accountAdded) {
+    setAccountDetails({
+      firstName: '',
+      lastName: '',
+      clientBalance: '',
+      userEmail: '',
+      userPassword: '',
+    });
+  }
   };
   return (
     <div>

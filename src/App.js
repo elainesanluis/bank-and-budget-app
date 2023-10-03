@@ -46,6 +46,7 @@ createdAt: new Date(),
 
 setAccountList([...accountList, newAccount]);
 setErrorMessage('');
+return true;
   };
 
 const handleDeposit = (accountName, amount) => {
