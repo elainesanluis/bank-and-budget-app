@@ -77,7 +77,7 @@ const updatedReceiverAccount = {
           id="senderAccount"
           onChange={(e) => setSenderAccount(e.target.value)}
           value={senderAccount}
-          placeholder='Enter sender account number'
+          placeholder='sender account number'
        />
       </div>
 
@@ -88,7 +88,7 @@ const updatedReceiverAccount = {
           id="receiverAccount"
           onChange={(e) => setReceiverAccount(e.target.value)}
           value={receiverAccount}
-          placeholder='Enter receiver account number'
+          placeholder='receiver account number'
         ></input>
       </div>
       <div>

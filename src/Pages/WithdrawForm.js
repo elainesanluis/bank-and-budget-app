@@ -47,15 +47,19 @@ function WithdrawForm({ accounts, onWithdraw }) {
 
   return (
     <div>
-      <h3>Withdraw</h3>
+
       <div className='withdraw-container'>
+      <label htmlFor='withdrawAccount'>Withdraw Account: </label>
       <input
+      id='withdrawAccount'
       type="number"
         value={accountNumber}
         onChange={(e) => setAccountNumber(e.target.value)}
         placeholder="Enter account number"
       />
+      <label htmlFor='withdrawAmount'>Withdraw Amount: </label>
       <input
+      id='withdrawAmount'
         type="number"
         value={withdrawAmount}
         onChange={(e) => setWithdrawAmount(e.target.value)}

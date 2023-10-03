@@ -11,3 +11,7 @@ h2 {
     display: flex;
     flex-direction: column;
 }
+
+::placeholder {
+    text-align: center;
+}

@@ -33,15 +33,17 @@ function DepositForm({ accounts, onDeposit }) {
 
   return (
     <div>
-      <h3>Deposit</h3>
       <div className='deposit-container'>
-<input
+      <label htmlFor='depositAccount'>Deposit Account: </label>
+      <input
+        id='depositAccount'
         type="number"
         value={accountNumber}
         onChange={(e) => setAccountNumber(e.target.value)}
         placeholder="Enter account number"/>
-
+      <label htmlFor='depositAmount'>Deposit Amount: </label>
       <input
+      id='depositAmount'
         type="number"
         value={depositAmount}
         onChange={(e) => setDepositAmount(e.target.value)}
