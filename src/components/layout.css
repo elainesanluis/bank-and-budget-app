@@ -3,7 +3,7 @@ h2 {
     top: 20%;
     left: 5%;
     color:  rgb(179, 59, 59);
-    text-shadow: 3px 5px 10px rgb(30, 28, 28);
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.5);
     font-size: 40px;
 }
 

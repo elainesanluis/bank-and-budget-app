@@ -22,6 +22,14 @@ function AccountsPage({ accounts, updateAccountList }) {
   };
 
   const handleSaveEditedAccount = (editedAccountData) => {
+    // Convert the edited data to uppercase before updating the account list
+  const editedAccountDataUpperCase = {
+    ...editedAccountData,
+    firstName: editedAccountData.firstName.toUpperCase(),
+    lastName: editedAccountData.lastName.toUpperCase(),
+    userEmail: editedAccountData.userEmail.toUpperCase(),
+  };
+
     // Find the index of the edited account in the account list
     const editedAccountIndex = accounts.findIndex(
       (account) => account.accountNumber === editedAccountData.accountNumber
@@ -30,7 +38,7 @@ function AccountsPage({ accounts, updateAccountList }) {
     if (editedAccountIndex !== -1) {
       // Update the account in the account list
       const updatedAccounts = [...accounts];
-      updatedAccounts[editedAccountIndex] = editedAccountData;
+      updatedAccounts[editedAccountIndex] = editedAccountDataUpperCase;
       // Update the account list state with the edited data
       updateAccountList(updatedAccounts);
     }

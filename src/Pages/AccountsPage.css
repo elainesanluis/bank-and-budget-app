@@ -52,6 +52,5 @@ table {
 }
 
 .fa-user-plus {
-    /* text-shadow: 1px 7px 10px black; */
-    text-shadow: 3px 5px 10px rgb(30, 28, 28);
+    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.5);
 }
