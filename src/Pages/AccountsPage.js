@@ -2,7 +2,7 @@
 import React from 'react';
 import './AccountsPage.css';
 import { Link } from 'react-router-dom';
-
+import '../components/layout.css';
 
 function AccountsPage({ accounts }) {
   return (
@@ -16,8 +16,8 @@ function AccountsPage({ accounts }) {
       <br />
       <br />
       <br />
-
-      <h2>Accounts Page</h2>
+<div className='account-container'>
+      <h2>Accounts</h2>
       <table>
         <thead>
           <tr>
@@ -43,6 +43,7 @@ function AccountsPage({ accounts }) {
 
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -34,6 +34,7 @@ function DepositForm({ accounts, onDeposit }) {
   return (
     <div>
       <h3>Deposit</h3>
+      <div className='deposit-container'>
 <input
         type="number"
         value={accountNumber}
@@ -49,6 +50,7 @@ function DepositForm({ accounts, onDeposit }) {
       <button id='deposit-money' onClick={handleDeposit}>Deposit</button>
       {succesMessage && <div className='success-manage'>{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
+    </div>
     </div>
   );
 }

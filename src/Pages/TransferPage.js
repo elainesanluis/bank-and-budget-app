@@ -1,7 +1,7 @@
 // TransferPage.js
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-
+import '../Pages/TransferPage.css';
 
 function TransferPage({accounts, handleTransferMoney  }) {
   const [senderAccount, setSenderAccount] = useState('');
@@ -69,8 +69,9 @@ const updatedReceiverAccount = {
     <br/>
     <br/>
       <h2>Transfer</h2>
-      <div>
-        <label htmlFor="senderAccount">Sender Account: </label>
+      <div className="transfer-container">
+        <div>
+        <label htmlFor="senderAccount">Sender Account: </label><br />
         <input
         type='text'
           id="senderAccount"
@@ -81,7 +82,7 @@ const updatedReceiverAccount = {
       </div>
 
       <div>
-        <label htmlFor="receiverAccount">Receiver Account: </label>
+        <label htmlFor="receiverAccount">Receiver Account: </label><br />
         <input
         type='text'
           id="receiverAccount"
@@ -91,7 +92,7 @@ const updatedReceiverAccount = {
         ></input>
       </div>
       <div>
-        <label htmlFor="transferAmount">Transfer Amount: </label>
+        <label htmlFor="transferAmount">Transfer Amount: </label><br />
         <input
           type="text"
           id="transferAmount"
@@ -102,9 +103,10 @@ const updatedReceiverAccount = {
       </div>
 
       <div>
-      <button id='transfer-money' onClick={handleTransfer}><i className="fa-solid fa-money-bill-transfer"></i></button>
+      <br />
+      <button id='transfer-money' onClick={handleTransfer}>Submit</button>
       </div>
-
+      </div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       {successMessage && <div className="success-message">{successMessage}</div>}
     </div>

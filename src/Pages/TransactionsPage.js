@@ -27,7 +27,10 @@ function TransactionsPage({accounts, onDeposit, onWithdraw}) {
       </Link>
       <h1>Bank of Avion School of the Philippines</h1>
     </div>
+    <br/>
+    <br/>
       <div id='transactions-main' className='transactions-main'>
+      
       <h2>Transactions</h2>
       <div className='deposit-withdraw'>
       <i id='deposit-btn' className="fa-solid fa-wallet deposit-withdraw-btn" onClick={handleDepositClick} ></i><h3>Deposit</h3>
@@ -36,6 +39,7 @@ function TransactionsPage({accounts, onDeposit, onWithdraw}) {
       
       </div>
       </div>
+      <div className='deposit-withdrawal-container'>
       {showDepositForm && (
           <div>
             <DepositForm accounts={accounts} onDeposit={onDeposit} />
@@ -45,6 +49,7 @@ function TransactionsPage({accounts, onDeposit, onWithdraw}) {
           <div>
           <WithdrawForm accounts={accounts} onWithdraw={onWithdraw} />
           </div>)}
+          </div>
     </div>
   );
 }

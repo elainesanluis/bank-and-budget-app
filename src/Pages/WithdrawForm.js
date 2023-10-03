@@ -48,6 +48,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
   return (
     <div>
       <h3>Withdraw</h3>
+      <div className='withdraw-container'>
       <input
       type="number"
         value={accountNumber}
@@ -63,6 +64,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
       <button id='withdraw-money' onClick={handleWithdraw}>Withdraw</button>
       {succesMessage && <div className="success-message">{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
+      </div>
     </div>
   );
 }

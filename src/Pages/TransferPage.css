@@ -1,0 +1,11 @@
+
+button:hover {
+    color: rgb(179, 59, 59);
+  }
+
+#transfer-money {
+    background-color: #fff;
+    border: 1px solid black;
+    outline: black;
+    border-radius: 5px;
+}

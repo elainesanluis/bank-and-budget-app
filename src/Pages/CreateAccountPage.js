@@ -73,7 +73,8 @@ function CreateAccountPage({ addAccount, accounts }) {
 
       <div id='create-account-form'>
         <h2>Create Account</h2>
-        <form onSubmit={handleSubmit}>
+        <form id='create-form' onSubmit={handleSubmit}>
+          <label for='firstName'>First Name: </label><br />
           <input
             id='firstName'
             type='text'
@@ -90,6 +91,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
+          <label for='lastName'>Last Name: </label><br />
           <input
             id='lastName'
             type='text'
@@ -106,6 +108,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
+          <label for='clientBalance'>Deposit Amount: </label><br />
           <input
             id='clientBalance'
             type='number'
@@ -123,6 +126,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
+          <label for='userEmail'>Email Address: </label><br />
           <input
             id='userEmail'
             type='email'
@@ -137,6 +141,7 @@ function CreateAccountPage({ addAccount, accounts }) {
               })
             }
             />{' '}<br/>
+            <label for='userPassword'>Password: </label><br />
             <input 
             id='userPassword'
             name='userPassword'
@@ -150,6 +155,7 @@ function CreateAccountPage({ addAccount, accounts }) {
               })
             }
             />{''}<br/>
+            <br />
           <button id='submitAccount' type='submit' name='submit' value='Submit'>
             Submit
           </button>

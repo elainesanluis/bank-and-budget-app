@@ -4,3 +4,8 @@
     margin-top: 5px;
   }
   
+  #create-form {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+  }

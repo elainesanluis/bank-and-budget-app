@@ -1,0 +1,23 @@
+
+table {
+position: absolute;
+top: 35%;
+left: 5%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+th {
+    background-color: rgb(179, 59, 59);
+    color: whitesmoke;
+    text-align: center;
+}
+
+th, td {
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

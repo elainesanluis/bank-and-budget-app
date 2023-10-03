@@ -1,4 +1,7 @@
 .deposit-withdraw {
+    position: absolute;
+    top: 35%;
+    left: 5%;
     display: flex;
     gap: 50px;
     outline: none;
@@ -20,4 +23,20 @@
 
 #deposit-btn:hover, #withdraw-btn:hover {
     color: rgb(179, 59, 59);
+}
+
+.transfer-container {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.deposit-withdrawal-container {
+    position: absolute;
+    top: 45%;
+    left: 5%;
 }
