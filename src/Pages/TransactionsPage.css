@@ -31,12 +31,13 @@
     left: 5%;
 }
 
-input {
-    margin-bottom: 10px;
-}
-
 .deposit-withdrawal-container {
     position: absolute;
     top: 45%;
     left: 5%;
 }
+
+input, label, #deposit-money, #withdraw-money {
+    font-size: 20px;
+}
+

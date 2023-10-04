@@ -1,6 +1,7 @@
 // WithdrawForm.js
 import React, { useState } from 'react';
 import '../components/layout.css';
+import '../Pages/TransactionsPage.css';
 
 function WithdrawForm({ accounts, onWithdraw }) {
   const [withdrawAmount, setWithdrawAmount] = useState('');
@@ -9,8 +10,6 @@ function WithdrawForm({ accounts, onWithdraw }) {
   const [transactionNumber, setTransactionNumber] = useState(1);
   const [accountNumber, setAccountNumber] = useState('');
   const [succesMessage,setSuccessMessage] = useState('');
-
-
 
   const handleWithdraw = () => {
     // if (selectedAccount && withdrawAmount >= 0) {
@@ -66,7 +65,7 @@ function WithdrawForm({ accounts, onWithdraw }) {
         value={withdrawAmount}
         onChange={(e) => setWithdrawAmount(e.target.value)}
         placeholder="Enter withdrawal amount"
-      />
+      /><br/>
       <button id='withdraw-money' onClick={handleWithdraw}>Withdraw</button>
       {succesMessage && <div className="success-message">{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}

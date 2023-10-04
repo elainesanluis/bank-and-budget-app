@@ -57,7 +57,7 @@ function AccountsPage({ accounts, updateAccountList }) {
       <br />
       <div className='accounts-heading'>
       <h2>Accounts</h2>
-      <Link to="/create-account" className='accountspage-add-user'><i class="fa-solid fa-user-plus"></i></Link>
+      <Link to="/create-account" className='accountspage-add-user'><i className="fa-solid fa-user-plus"></i></Link>
       </div>
       <div className='account-container'>
       <table>

@@ -1,6 +1,7 @@
 // DepositForm.js
 import React, { useState } from 'react';
-import '../components/layout.css';
+// import '../components/layout.css';
+import '../Pages/TransactionsPage.css';
 
 function DepositForm({ accounts, onDeposit }) {
   // const [selectedAccount, setSelectedAccount] = useState('');
@@ -49,9 +50,9 @@ function DepositForm({ accounts, onDeposit }) {
         value={depositAmount}
         onChange={(e) => setDepositAmount(e.target.value)}
         placeholder="Enter deposit amount"
-      />
+      /><br/>
       <button id='deposit-money' onClick={handleDeposit}>Deposit</button>
-      {succesMessage && <div className='success-manage'>{succesMessage}</div>}
+      {succesMessage && <div className='success-message'>{succesMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
     </div>
