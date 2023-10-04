@@ -171,7 +171,6 @@ function App() {
                           })
                         }
                       /><br></br>
-                      {/* Add form fields for editing */}
                       <button onClick={closeEditModal}>Cancel</button>
                       <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
                     </form>

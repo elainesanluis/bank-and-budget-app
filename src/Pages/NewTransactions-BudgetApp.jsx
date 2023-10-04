@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NewTransactions-Budgetapp.css';
+export const balance = 0.0;
 
 export default function NewTransactions({ onAddTransaction }) {
   const [text, setText] = useState('');
@@ -30,6 +31,48 @@ export default function NewTransactions({ onAddTransaction }) {
     setCategory('');
     setDate('');
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [amountToAdd, setAmountToAdd] = useState(0);
+  const [balance, setBalance] = useState(0.00);
+
+  // Define functions to open and close the modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // Function to add the amount to the balance
+  const addToBalance = () => {
+    setBalance(balance + amountToAdd);
+    closeModal(); // Close the modal after adding the amount
+  };
+
+  //  Modal component
+  const Modal = ({ isOpen, onClose }) => {
+    if (!isOpen) {
+      return null; // Don't render the modal if it's closed
+    }
+
+    return (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={onClose}>&times;</span>
+          <p>Enter an amount:</p>
+          <input
+            type="number"
+            defaultValue={amountToAdd}
+            onChange={(e) => setAmountToAdd(parseFloat(e.target.value))}
+          />
+          <button onClick={addToBalance}>Add to Balance</button>
+        </div>
+      </div>
+    );
+  };
+
 
   return (
     <div>
@@ -113,7 +156,11 @@ export default function NewTransactions({ onAddTransaction }) {
         </div>
         <button className="btn">Add Transaction</button>
       </form>
+      <div className='Account Balance'>
+          <p>Account Balance: &#8369;{balance.toFixed(2)}</p>
+          <button className='addBudget' onClick={openModal}>Add budget</button>
+          <Modal isOpen={isModalOpen} onClose={closeModal} />
+      </div>
     </div>
   );
 }
-

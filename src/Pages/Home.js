@@ -1,6 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Home.css'
+import { balance } from './NewTransactions-BudgetApp';
 
 function Home() {
 
@@ -64,8 +65,7 @@ function Home() {
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
           <div className='wallet'>
             <p className='title-budgetBalance'>Account Balance</p>
-            <p className='budgetBalance'>&#8369;0.00</p>
-            <button className='addBudget'>Add budget</button>
+            <p className='budgetBalance'>&#8369;{balance.toFixed(2)}</p>
           </div>
           <div className='latest-transactions'>
             <p className='title-transactions'>Transactions</p>
