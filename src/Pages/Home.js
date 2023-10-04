@@ -62,12 +62,15 @@ function Home() {
           <button className='add-transactions'>New Transaction</button>
           </Link>
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
-          <div className='wallet'>Wallets</div>
+          <div className='wallet'>
+            <p className='title-budgetBalance'>Account Balance</p>
+            <p className='budgetBalance'>&#8369;0.00</p>  
+          </div>
           <div className='latest-transactions'>
             <p className='title-transactions'>Transactions</p>
             <div className='tranx-list'></div>
             <div className='view-detailed'>View detailed&gt;&gt;</div>
-            </div>
+          </div>
           <div className='categories'>Expense</div>
         </div>
       </div>

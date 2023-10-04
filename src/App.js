@@ -73,7 +73,7 @@ function App() {
                 <ul>
                   {transactions.map((transaction) => (
                     <li key={transaction.id}>
-                      {transaction.owner} {transaction.selectCategory} {transaction.text} {transaction.amount}
+                      {transaction.owner} {transaction.selectCategory} {transaction.text} {transaction.amount} {transaction.date}
                       <button onClick={() => openEditModal(transaction)}>Edit</button>
                       <button onClick={() => openDeleteModal(transaction.id)}>Delete</button>
                     </li>
@@ -87,12 +87,12 @@ function App() {
              onRequestClose={closeEditModal}
              ariaHideApp={false} // To prevent a warning
             >
-        {editTransactionData.id ? (
+              {editTransactionData.id ? (
                   <>
                     <h2>Edit Transaction</h2>
                     <form>
                       {/* Populate the form fields with editTransactionData */}
-                      <label htmlFor="owner">Owner/Payee:</label>
+                      <label htmlFor="owner">Owner/Payee: </label>
                       <input
                         type="text"
                         id="owner"
@@ -123,9 +123,7 @@ function App() {
                         <option value="Subscriptions">Subscriptions</option>
                       </select>
                         <br></br>
-
-
-                      <label htmlFor="text">Name of :</label>
+                      <label htmlFor="text">Name of Expense: </label>
                       <input
                         type="text"
                         id="name-of-tranx"
@@ -137,7 +135,7 @@ function App() {
                           })
                         }
                       /><br></br>
-                      <label htmlFor="amount">Amount:</label>
+                      <label htmlFor="amount">Amount: </label>
                       <input
                         type="number"
                         id="amount"
@@ -148,22 +146,34 @@ function App() {
                             amount: e.target.value,
                           })
                         }
-                      />
-              {/* Add form fields for editing */}
-              <button onClick={closeEditModal}>Cancel</button>
-              <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
-            </form>
-          </>
-        ) : (
-          <>
-            <h2>Confirm Delete</h2>
-            <p>Are you sure you want to delete this transaction?</p>
-            <button onClick={closeEditModal}>Cancel</button>
-            <button onClick={confirmDeleteTransaction}>Delete</button>
-          </>
-        )}
-      </Modal>
-      </div>
+                      /><br></br>
+                      <label htmlFor="date">Date: </label>
+                      <input
+                        type="date"
+                        id="date"
+                        value={editTransactionData.date}
+                        onChange={(e) =>
+                          setEditTransactionData({
+                            ...editTransactionData,
+                            date: e.target.value,
+                          })
+                        }
+                      /><br></br>
+                      {/* Add form fields for editing */}
+                      <button onClick={closeEditModal}>Cancel</button>
+                      <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
+                    </form>
+                    </>
+                    ) : (
+                  <>
+                    <h2>Confirm Delete</h2>
+                    <p>Are you sure you want to delete this transaction?</p>
+                    <button onClick={closeEditModal}>Cancel</button>
+                   <button onClick={confirmDeleteTransaction}>Delete</button>
+                  </>
+                )}
+              </Modal>
+            </div>
           }
         />
       </Routes>

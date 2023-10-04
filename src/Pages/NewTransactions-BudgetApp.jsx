@@ -7,6 +7,7 @@ export default function NewTransactions({ onAddTransaction }) {
   const [amount, setAmount] = useState('');
   const [owner, setOwner] = useState('');
   const [selectCategory, setCategory] = useState('');
+  const [date, setDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ export default function NewTransactions({ onAddTransaction }) {
       amount: +amount, // Convert to a number
       owner,
       selectCategory,
+      date,
     };
 
     onAddTransaction(newTransaction);
@@ -26,6 +28,7 @@ export default function NewTransactions({ onAddTransaction }) {
     setAmount('');
     setOwner('');
     setCategory('');
+    setDate('');
   };
 
   return (
@@ -96,6 +99,16 @@ export default function NewTransactions({ onAddTransaction }) {
             onChange={(e) => setOwner(e.target.value)}
             placeholder="Enter text..."
             required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="date">Date: </label>
+          <input
+          type="date"
+          id="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
           />
         </div>
         <button className="btn">Add Transaction</button>
