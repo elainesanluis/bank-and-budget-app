@@ -73,7 +73,7 @@ function App() {
                 <ul>
                   {transactions.map((transaction) => (
                     <li key={transaction.id}>
-                      {transaction.owner} {transaction.text} {transaction.amount}
+                      {transaction.owner} {transaction.selectCategory} {transaction.text} {transaction.amount}
                       <button onClick={() => openEditModal(transaction)}>Edit</button>
                       <button onClick={() => openDeleteModal(transaction.id)}>Delete</button>
                     </li>
@@ -104,6 +104,27 @@ function App() {
                           })
                         }
                         /><br></br>
+                      <label htmlFor="selectCategory">Category: </label>
+                      <select
+                      id="selectCategory"
+                      value={editTransactionData.selectCategory}
+                      onChange={(e) => setEditTransactionData({...editTransactionData, selectCategory: e.target.value,})
+                      }>
+                        <option value="" disabled>Please select...</option>
+                        <option value="Food and Drinks">Food and Drinks</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Communications">Communications</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Personal Care">Personal Care</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Holidays">Holidays</option>
+                        <option value="Investments">Investments</option>
+                        <option value="Subscriptions">Subscriptions</option>
+                      </select>
+                        <br></br>
+
+
                       <label htmlFor="text">Name of :</label>
                       <input
                         type="text"

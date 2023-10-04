@@ -6,6 +6,7 @@ export default function NewTransactions({ onAddTransaction }) {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
   const [owner, setOwner] = useState('');
+  const [selectCategory, setCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ export default function NewTransactions({ onAddTransaction }) {
       text,
       amount: +amount, // Convert to a number
       owner,
+      selectCategory,
     };
 
     onAddTransaction(newTransaction);
@@ -23,6 +25,7 @@ export default function NewTransactions({ onAddTransaction }) {
     setText('');
     setAmount('');
     setOwner('');
+    setCategory('');
   };
 
   return (
@@ -44,9 +47,7 @@ export default function NewTransactions({ onAddTransaction }) {
       <h3>New Transaction</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-control">
-        <button className="income-budget">INCOME</button>
-        <button className="expense-budget">EXPENSE</button><br></br>
-          <label htmlFor="text">Name of : </label>
+          <label htmlFor="text">Name of Expense: </label>
           <input
             type="text"
             id="name-of-tranx"
@@ -55,6 +56,25 @@ export default function NewTransactions({ onAddTransaction }) {
             placeholder="Enter text..."
             required
           />
+        </div>
+        <div className="form-control">
+          <label htmlFor="selectCategory">Category: </label>
+          <select
+          id="selectCategory"
+          value={selectCategory}
+          onChange={(e) => setCategory(e.target.value)}>
+            <option value="" disabled>Please select...</option>
+            <option value="Food and Drinks">Food and Drinks</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Groceries">Groceries</option>
+            <option value="Communications">Communications</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Holidays">Holidays</option>
+            <option value="Investments">Investments</option>
+            <option value="Subscriptions">Subscriptions</option>
+          </select>
         </div>
         <div className="form-control">
           <label htmlFor="amount">Amount: </label>
