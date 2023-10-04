@@ -7,6 +7,5 @@ button:hover {
     background-color: #fff;
     border: 1px solid black;
     outline: black;
-    border-radius: 5px;
     font-size: 20px;
 }
