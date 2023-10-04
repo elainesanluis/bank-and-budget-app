@@ -2,13 +2,14 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AccountsPage from './Pages/AccountsPage';
+import Accounts from './Pages/Accounts';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
 import TransferPage from './Pages/TransferPage';
 import Home from './Pages/Home';
 import DepositFormPage from './Pages/DepositForm';
 import WithdrawFormPage from './Pages/WithdrawForm';
+import AccountsPage from './Pages/Accounts';
 
 
 function App() {

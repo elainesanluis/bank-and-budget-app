@@ -1,6 +1,6 @@
 // AccountsPage.js
 import React from 'react';
-import './AccountsPage.css';
+import './Accounts.css';
 import { Link } from 'react-router-dom';
 import '../components/layout.css';
 import EditAccountModal from '../components/EditAccountModal';

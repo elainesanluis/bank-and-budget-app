@@ -17,9 +17,10 @@ function WithdrawForm({ accounts, onWithdraw }) {
     //   onWithdraw(selectedAccount, parseFloat(withdrawAmount));
     const selectedAccount = accounts.find((account) => account.accountNumber === parseInt(accountNumber)); 
 
-      if(!selectedAccount) {
-        setErrorMessage('Account not found. Please enter a valid account Number.');
-      }
+    if (!selectedAccount) {
+      setErrorMessage('Account not found. Please enter a valid account number.');
+      return;
+    }
 
       if (withdrawAmount >= 0 && withdrawAmount <= selectedAccount.clientBalance) {
         onWithdraw(selectedAccount.firstName, parseFloat(withdrawAmount));
