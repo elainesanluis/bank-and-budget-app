@@ -1,5 +1,5 @@
 .budgetApp {
-    padding: 1px;
+    padding: 5px;
     border-radius: 10px;
     border: solid #525151;
     background-color: #fff;
@@ -8,25 +8,25 @@
 
 .budgetApp {
     justify-content: center;
-    grid-template-columns: 450px 350px 350px;
-    grid-template-rows: 65px 65px 150px;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
     column-gap: 5px;
     row-gap: 5px;
   }
 
   .expense-summary {
-    grid-area: 1 / 1 / 1 / 3;
+    grid-area: 1 / 1 / 2 / 3;
   }
 
   .expense-overview {
-    grid-area: 2 / 1 / 2 / 1;
+    grid-area: 2 / 1 / 3 / 2;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     text-align: center;
   }
 
   .latest-transactions {
-    grid-area: 2 / 2 / 4 / 2;
+    grid-area: 2 / 2 / 4 / 3;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     text-align: center;
@@ -34,18 +34,18 @@
   }
 
   .latest-transactions {
-    justify-content: center;
+    /* justify-content: center; */
     grid-template-columns: 1fr;
-    grid-template-rows: 20px 170px 20px;
+    grid-template-rows: 1fr 7fr 1fr;
     row-gap: 1px;
     padding: 1px;
-    align-content: start;
+    /* align-content: start; */
   }
 
 
   .title-transactions {
     /* border: 0.5px solid rgb(187, 184, 184); */
-    grid-area: 1 / 1 / 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
 
   }
 
@@ -65,7 +65,7 @@
 
 
   .categories {
-    grid-area: 2 / 3 / 4 / 3;
+    grid-area: 2 / 3 / 4 / 4;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     text-align: center;
@@ -79,12 +79,12 @@
   }
 
   .wallet {
-    justify-content: center;
+    /* justify-content: center; */
     grid-template-columns: 1fr;
-    grid-template-rows: 60px 70px;
+    grid-template-rows: 1fr 1fr 1fr;
     row-gap: 1px;
     padding: 1px;
-    align-content: center;
+    /* align-content: center; */
     text-align: center;
   }
 
@@ -95,7 +95,18 @@
 
   .budgetAccount {
     grid-area: 2 / 1 / 3 / 2;
-    /* border: 0.5px solid rgb(187, 184, 184); */
+    border: 0.5px solid rgb(187, 184, 184);
+  }
+
+  .addBudget {
+    grid-area: 3 / 1 / 4 / 2;
+    width: 90px;
+    height: 30px;
+    color: #fff;
+    background-color: black;
+    border-radius: 3px;
+    align-self: center;
+    justify-self: center;
   }
 
   .add-transactions {

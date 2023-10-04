@@ -64,12 +64,13 @@ function Home() {
           <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
           <div className='wallet'>
             <p className='title-budgetBalance'>Account Balance</p>
-            <p className='budgetBalance'>&#8369;0.00</p>  
+            <p className='budgetBalance'>&#8369;0.00</p>
+            <button className='addBudget'>Add budget</button>
           </div>
           <div className='latest-transactions'>
             <p className='title-transactions'>Transactions</p>
             <div className='tranx-list'></div>
-            <div className='view-detailed'>View detailed&gt;&gt;</div>
+            <div className='view-detailed'>View more&gt;&gt;</div>
           </div>
           <div className='categories'>Expense</div>
         </div>
