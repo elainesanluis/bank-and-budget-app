@@ -14,6 +14,7 @@ function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [editTransactionData, setEditTransactionData] = useState({});
   const [deleteTransactionId, setDeleteTransactionId] = useState(null);
+  const [modalMode, setModalMode] = useState('edit');
 
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
@@ -22,6 +23,7 @@ function App() {
   // Function to open the edit modal
   const openEditModal = (transaction) => {
     setEditTransactionData(transaction);
+    setModalMode('edit');
     setModalIsOpen(true);
   };
 
@@ -41,6 +43,16 @@ function App() {
 
   // Function to open the delete modal
   const openDeleteModal = (transactionId) => {
+      // Check if a transaction with the given transactionId exists in editTransactionData
+  const isEditing = !!transactions.find((transaction) => transaction.id === transactionId);
+  
+  if (isEditing) {
+    // If a transaction with the given transactionId is being edited, close the edit modal
+    closeEditModal();
+  }
+
+  // Set the modal mode to "delete"
+    setModalMode('delete');
     setDeleteTransactionId(transactionId);
     setModalIsOpen(true);
   };
@@ -87,7 +99,7 @@ function App() {
              onRequestClose={closeEditModal}
              ariaHideApp={false} // To prevent a warning
             >
-              {editTransactionData.id ? (
+              {modalMode === 'edit' && editTransactionData.id ? (
                   <>
                     <h2>Edit Transaction</h2>
                     <form>
@@ -163,8 +175,8 @@ function App() {
                       <button onClick={closeEditModal}>Cancel</button>
                       <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
                     </form>
-                    </>
-                    ) : (
+                  </>
+                ) : (
                   <>
                     <h2>Confirm Delete</h2>
                     <p>Are you sure you want to delete this transaction?</p>
