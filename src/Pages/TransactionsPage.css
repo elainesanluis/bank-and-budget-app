@@ -41,3 +41,8 @@ input, label, #deposit-money, #withdraw-money {
     font-size: 20px;
 }
 
+#deposit-money:hover, #withdraw-money:hover {
+background-color: rgb(179, 59, 59);
+color: white;
+}
+

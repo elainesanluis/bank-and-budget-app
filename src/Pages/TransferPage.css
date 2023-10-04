@@ -1,11 +1,17 @@
 
 button:hover {
-    color: rgb(179, 59, 59);
+  color: rgb(179, 59, 59);
   }
 
 #transfer-money {
-    background-color: #fff;
-    border: 1px solid black;
-    outline: black;
-    font-size: 20px;
+  border: 1px solid black;
+  outline: black;
+  font-size: 20px;
+  width: 100%; 
+  height: 30px;
+}
+
+#transfer-money:hover {
+  background-color: rgb(179, 59, 59);
+  color: white;
 }
