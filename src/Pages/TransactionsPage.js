@@ -1,13 +1,17 @@
 // TransactionsPage.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './TransactionsPage.css';
+import '../components/TransactionsPage.css';
 import DepositForm from './DepositForm';
 import WithdrawForm from './WithdrawForm';
+import TransactionDetails from '../components/TransactionDetails';
 
-function TransactionsPage({accounts, onDeposit, onWithdraw}) {
+function TransactionsPage({accounts}) {
   const [showDepositForm, setShowDepositForm] = useState(false);
   const [showWithdrawForm, setShowWithdrawForm] = useState(false);
+  const [isTransactionDetailsVisible, setTransactionDetailsVisible] = useState(false);
+  const [transactionDetails, setTransactionDetails] = useState(null);
+
 
   const handleDepositClick = () => {
     setShowDepositForm(true);
@@ -17,9 +21,21 @@ function TransactionsPage({accounts, onDeposit, onWithdraw}) {
   const handleWithdrawClick = () => {
     setShowDepositForm(false); // Hide deposit form if it's currently shown
     setShowWithdrawForm(true);
+}
+
+const updateTransactionDetails = (details) => {
+  console.log('Updating transaction details:', details);
+  setTransactionDetails(details);
+  setTransactionDetailsVisible(true);
+  console.log('isTransactionDetailsVisible:', isTransactionDetailsVisible);
+ };
+
+const closeTransactionDetails = () => {
+  setTransactionDetailsVisible(false);
+  console.log('Close button clicked'); 
   };
 
-  return (
+return (
     <div>
       <div id='create-account-logo'>
     <Link to="/">
@@ -42,14 +58,32 @@ function TransactionsPage({accounts, onDeposit, onWithdraw}) {
       <div className='deposit-withdrawal-container'>
       {showDepositForm && (
           <div>
-            <DepositForm accounts={accounts} onDeposit={onDeposit} />
+            <DepositForm accounts={accounts} updateTransactionDetails={updateTransactionDetails}
+/>
           </div>
         )}
         {showWithdrawForm && (
           <div>
-          <WithdrawForm accounts={accounts} onWithdraw={onWithdraw} />
+          <WithdrawForm accounts={accounts} updateTransactionDetails={updateTransactionDetails}/>
           </div>)}
           </div>
+          <div className={`transaction-details-container ${isTransactionDetailsVisible ? 'visible' : ''}`}>
+          {transactionDetails && isTransactionDetailsVisible && (
+          <div>
+          <TransactionDetails
+          type={transactionDetails.type}
+          accountName={transactionDetails.accountName}
+          accountNumber={transactionDetails.accountNumber}
+          amount={transactionDetails.amount}
+          transactionNumber={transactionDetails.transactionNumber}
+          transactionTime={transactionDetails.transactionTime}
+          transactionDate={transactionDetails.transactionDate}
+          isVisible={isTransactionDetailsVisible}
+          onClose={closeTransactionDetails}
+          />
+          </div>
+      )}
+      </div>
     </div>
   );
 }

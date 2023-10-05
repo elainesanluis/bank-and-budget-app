@@ -2,15 +2,13 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Accounts from './Pages/Accounts';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
 import TransferPage from './Pages/TransferPage';
 import Home from './Pages/Home';
 import DepositFormPage from './Pages/DepositForm';
 import WithdrawFormPage from './Pages/WithdrawForm';
-import AccountsPage from './Pages/Accounts';
-
+import Accounts from './Pages/Accounts';
 
 function App() {
   const [accountList, setAccountList] = useState([
@@ -99,12 +97,24 @@ console.log('Sender Account:', senderAccount);
 console.log('Receiver Account:', receiverAccount);
 };
 
+// Define the updateTransactionDetails function
+const updateTransactionDetails = (
+  type,
+  senderAccount,
+  receiverAccount,
+  amount,
+  transactionNumber
+) => {
+ 
+  console.log('Transaction details updated:', type, senderAccount, receiverAccount, amount, transactionNumber);
+};
+
 return (
   <div>
     <Router>
     <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/accounts" element={<AccountsPage accounts={accountList} updateAccountList={setAccountList}/>} />
+        <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={setAccountList}/>} />
         <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} errorMessage={errorMessage}/>} />
         <Route path="/transactions" 
           element={
@@ -114,7 +124,7 @@ return (
             onWithdraw={handleWithdraw} />} />
         <Route path="/deposit" element={<DepositFormPage />} />
         <Route path="/withdraw" element={<WithdrawFormPage />} />
-        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} />} />
+        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
     </Routes>
     </Router>
     
