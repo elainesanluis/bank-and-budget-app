@@ -80,19 +80,36 @@ function App() {
           element={
             <div>
               <NewTransactions onAddTransaction={addTransaction} />
-              <div>
+              <div className='tranx-history'>
                 <h3>Transaction History</h3>
-                <ul>
-                  {transactions.map((transaction) => (
-                    <li key={transaction.id}>
-                      {transaction.owner} {transaction.selectCategory} {transaction.text} {transaction.amount} {transaction.date}
-                      <button onClick={() => openEditModal(transaction)}>Edit</button>
-                      <button onClick={() => openDeleteModal(transaction.id)}>Delete</button>
-                    </li>
-                  ))}
-                </ul>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Category</th>
+                      <th>Text</th>
+                      <th>Amount</th>
+                      <th>Owner</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {transactions.map((transaction) => (
+                      <tr key={transaction.id}>
+                        <td>{transaction.date}</td>
+                        <td>{transaction.selectCategory}</td>
+                        <td>{transaction.text}</td>
+                        <td>{transaction.amount}</td>
+                        <td>{transaction.owner}</td>
+                        <td>
+                          <button onClick={() => openEditModal(transaction)}>Edit</button>
+                          <button onClick={() => openDeleteModal(transaction.id)}>Delete</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-
                {/* Edit and Delete Modals */}        
            <Modal
              isOpen={modalIsOpen}

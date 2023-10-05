@@ -109,3 +109,8 @@ body {
   button:hover {
     color: rgb(179, 59, 59);
   }
+
+  .tranx-history {
+    margin-top: 50px;
+    margin-left: 420px;
+  }

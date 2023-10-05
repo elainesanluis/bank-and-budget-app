@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NewTransactions-Budgetapp.css';
-export const balance = 0.0;
+export const balance = 0.00;
 
 export default function NewTransactions({ onAddTransaction }) {
   const [text, setText] = useState('');
@@ -89,12 +89,18 @@ export default function NewTransactions({ onAddTransaction }) {
     <br />
     <br />
     <br />
-
-      <h3>New Transaction</h3>
-      <form onSubmit={handleSubmit}>
+    <div className='accountBalance'>
+      <p>Account Balance: &#8369;{balance.toFixed(2)}</p>
+      <button className='addBudget' onClick={openModal}>Add budget</button>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
+    </div>
+    <div className="div-newtranx">
+      <h3 className="title-newtranx">New Transaction</h3>
+      <form className="form-newtranx" onSubmit={handleSubmit}>
         <div className="form-control">
-          <label htmlFor="text">Name of Expense: </label>
+          <label id="label1" htmlFor="text">Name of Expense: </label>
           <input
+          className="box"
             type="text"
             id="name-of-tranx"
             value={text}
@@ -104,8 +110,9 @@ export default function NewTransactions({ onAddTransaction }) {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="selectCategory">Category: </label>
+          <label id="label2" htmlFor="selectCategory">Category: </label>
           <select
+          className="box"
           id="selectCategory"
           value={selectCategory}
           onChange={(e) => setCategory(e.target.value)}>
@@ -123,8 +130,9 @@ export default function NewTransactions({ onAddTransaction }) {
           </select>
         </div>
         <div className="form-control">
-          <label htmlFor="amount">Amount: </label>
+          <label id="label3" htmlFor="amount">Amount: </label>
           <input
+            className="box"
             type="number"
             id="amount"
             value={amount}
@@ -134,8 +142,9 @@ export default function NewTransactions({ onAddTransaction }) {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="owner">Owner/Payee: </label>
+          <label id="label4" htmlFor="owner">Owner/Payee: </label>
           <input
+            className="box"
             type="text"
             id="owner"
             value={owner}
@@ -145,8 +154,9 @@ export default function NewTransactions({ onAddTransaction }) {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="date">Date: </label>
+          <label id="label5" htmlFor="date">Date: </label>
           <input
+          className="box"
           type="date"
           id="date"
           value={date}
@@ -154,13 +164,9 @@ export default function NewTransactions({ onAddTransaction }) {
           required
           />
         </div>
-        <button className="btn">Add Transaction</button>
+        <button className="btn-newtranx">Add Transaction</button>
       </form>
-      <div className='Account Balance'>
-          <p>Account Balance: &#8369;{balance.toFixed(2)}</p>
-          <button className='addBudget' onClick={openModal}>Add budget</button>
-          <Modal isOpen={isModalOpen} onClose={closeModal} />
-      </div>
+    </div>  
     </div>
   );
 }
