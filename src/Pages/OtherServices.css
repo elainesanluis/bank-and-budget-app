@@ -1,0 +1,29 @@
+.other-services-container {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    width: 200px;
+    height: 300px;
+}
+
+.transaction-logs-heading {
+    font-size: 23px;
+}
+
+.transaction-logs-label {
+    font-size: 20px;
+}
+
+#accountNumber, #fromDate, #toDate {
+    font-size: 20px;
+}
+
+#transaction-log-submit {
+    font-size: 20px;
+    width: 250px;
+}
+
+#transaction-log-submit:hover {
+    background-color: rgb(179, 59, 59);
+    color: white;
+}

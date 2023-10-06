@@ -63,7 +63,13 @@ const transferAmountFloat = parseFloat(transferAmount);
     } else {
       setSuccessMessage('Transfer succesful!');
       setErrorMessage('');
-      setTransactionDetails(true)
+      setTransactionDetails({
+        type: 'Transfer',
+        senderAccount: `${senderAccountObj.firstName} ${senderAccountObj.lastName}`,
+        receiverAccount: `${receiverAccountObj.firstName} ${receiverAccountObj.lastName}`,
+        amount: transferAmountFloat,
+        transactionNumber,
+      });
 }
 
 // Update sender and receiver account balances
@@ -80,13 +86,13 @@ const updatedReceiverAccount = {
     handleTransferMoney(updatedSenderAccount, updatedReceiverAccount);
     setSuccessMessage('Transfer successful!');
 
-    setTransactionDetails({
-      type: 'Transfer',
-      senderAccount: `${senderAccountObj.firstName} ${senderAccountObj.lastName}`,
-      receiverAccount: `${receiverAccountObj.firstName} ${receiverAccountObj.lastName}`,
-      amount: transferAmountFloat,
-      transactionNumber,
-    });
+    // setTransactionDetails({
+    //   type: 'Transfer',
+    //   senderAccount: `${senderAccountObj.firstName} ${senderAccountObj.lastName}`,
+    //   receiverAccount: `${receiverAccountObj.firstName} ${receiverAccountObj.lastName}`,
+    //   amount: transferAmountFloat,
+    //   transactionNumber,
+    // });
 
 // Clear input fields after successful transfer
 setSenderAccount('');       // Clear sender account input
@@ -105,6 +111,7 @@ updateTransactionDetails(
       transactionTime,
       transactionDate,
     );
+    // updateAccountList(updatedAccounts);
   };
 
   return (

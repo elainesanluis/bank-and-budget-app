@@ -4,7 +4,7 @@ import '../components/Styles.css';
 import {generateTransactionNumber } from '../components/TransactionNumber';
 import TransactionDetails from '../components/TransactionDetails'; 
 
-function WithdrawForm({ accounts, updateTransactionDetails  }) {
+function WithdrawForm({ accounts, updateTransactionDetails, updateAccountList }) {
   const [withdrawAmount, setWithdrawAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
@@ -31,10 +31,13 @@ function WithdrawForm({ accounts, updateTransactionDetails  }) {
     setSuccessMessage('Withdrawal Successful!')
     setTransactionDetailsVisible(true);
 
+    const updatedClientBalance = selectedAccount.clientBalance + parseFloat(withdrawAmount);
+    selectedAccount.clientBalance = updatedClientBalance;
+
     const currentDate = new Date();
     const transactionTime = currentDate.toLocaleTimeString();
     const transactionDate = currentDate.toLocaleDateString();
-
+    
     const updatedTransactionDetails = {
       type: 'Withdrawal',
       accountName: fullName,

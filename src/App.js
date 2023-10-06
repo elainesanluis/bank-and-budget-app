@@ -22,6 +22,10 @@ function App() {
   ]);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const updateAccountList = (newAccountList) => {
+    setAccountList(newAccountList);
+  };
+
 const addAccount = (accountDetails) => {
 // Convert input names to uppercase for case-insensitive comparison
 const firstNameUpper = accountDetails.firstName.toUpperCase();
@@ -115,7 +119,7 @@ return (
     <Router>
     <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={setAccountList}/>} />
+        <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={updateAccountList} />} />
         <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} errorMessage={errorMessage}/>} />
         <Route path="/transactions" 
           element={
@@ -123,9 +127,9 @@ return (
             accounts={accountList} 
             onDeposit={handleDeposit} 
             onWithdraw={handleWithdraw} />} />
-        <Route path="/deposit" element={<DepositFormPage />} />
-        <Route path="/withdraw" element={<WithdrawFormPage />} />
-        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
+        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
+        <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} />} />
+        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList} />} />
         <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
     </Routes>
     </Router>
@@ -134,6 +138,6 @@ return (
   )
 };
 
-export function handleDeposit(accountName, amount) {};
-export function handleWithdraw(accountName, amount) {};
+// export function handleDeposit(accountName, amount) {};
+// export function handleWithdraw(accountName, amount) {};
 export default App;
