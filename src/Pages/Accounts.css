@@ -34,7 +34,7 @@ th, td {
 table {
     width: 1000px;
 }
-
+/* 
 .accountspage-add-user {
     position: absolute;
     top: 25%;
@@ -43,24 +43,23 @@ table {
     font-size: 40px;
     background-color: white;
     border: white;
-    
-}
-
-.home-button-icon {
-    font-size: 60px;
-    text-shadow: 3px 3px 10px gray;
-    position: relative;
-    top: 200px;
-    right: 5%;
-}
+} */
 
 .accounts-icon {
     text-shadow: 1px 3px 5px gray;
     font-size: 25px;
     outline: none;
+    padding: 3px;
 }
 
 .add-account-icon {
-    font-size: 60px;
+    font-size: 55px;
     text-shadow: 3px 3px 10px gray;
+    padding: 8px;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    color:  rgb(179, 59, 59);
+    background-color: white;
+    border: white;
 }
