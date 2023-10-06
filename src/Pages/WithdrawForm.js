@@ -1,6 +1,5 @@
 // WithdrawForm.js
 import React, { useState } from 'react';
-import '../components/layout.css';
 import '../components/Styles.css';
 import {generateTransactionNumber } from '../components/TransactionNumber';
 import TransactionDetails from '../components/TransactionDetails'; 

@@ -64,7 +64,10 @@ function TransactionDetails({ type, accountName, amount,
           </tr>
         </tbody>
       </table>
+      <br/>
+      <div className='transaction-details-button-container'>
       <button id='close-transaction-details' onClick={closeTransactionDetails}>Close</button>
+      </div>
       </div>
     </div>
   );

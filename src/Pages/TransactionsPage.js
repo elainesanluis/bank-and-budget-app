@@ -1,7 +1,6 @@
 // TransactionsPage.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../components/layout.css';
 import '../components/Styles.css';
 import DepositForm from './DepositForm';
 import WithdrawForm from './WithdrawForm';

@@ -14,8 +14,8 @@ body {
   
   .dashBoard {
     margin-top: 150px;
-    margin-left: 280px;
-    margin-right: 280px;
+    margin-left: 200px;
+    margin-right: 200px;
     padding: 30px;
     border-radius: 10px;
     border: solid black;
@@ -26,7 +26,7 @@ body {
   .dashBoard {
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 150px 150px 150px 150px;
+    grid-template-rows: 180px 180px 150px 150px;
     column-gap: 10px;
     row-gap: 10px;
   }
@@ -45,68 +45,6 @@ body {
     border-radius: 5px;
   }
   
-  .userAccount {
-    background-color: #81cfef;
-    border: solid #525151;
-    border-radius: 5px;
-  }
-  
-  .createAccount, .addFeatures {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;  
-    border: solid #525151;
-    border-radius: 5px;
-    gap: 15px;
-    width: 280px;
-  }
-
-  .create-ccount-button, .dashboard-container, .add-features-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .addFeatures {
-    background-color: #fff;  
-    border: solid #525151;
-    border-radius: 5px;
-  }
-
-  .home-button-icon {
-    font-size: 60px;
-    text-shadow: 3px 3px 10px gray;
-    border-radius: 5px;
-  }
-
-  .transactions, .userAccount {
-    background-color: #fff;  
-    border: solid #525151;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 280px;
-    gap: 15px;
-  }
-
-  .transaction-buttons {
-    display: flex;
-    gap: 5px;
-  }
-
-  .trans-button, .create-account-btn, .user-account-btn, .addfeatures-btn {
-    width: 130px;
-    height: 80px;
-    background-color: white;
-    border: black;
-    border-radius: 5px;
-  }
-
   button:hover {
     color: rgb(179, 59, 59);
   }

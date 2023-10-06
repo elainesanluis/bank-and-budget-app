@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Styles.css';
-import '../components/layout.css';
 
 function CreateAccountPage({ addAccount, accounts }) {
   // Initialize state to hold submitted account details
