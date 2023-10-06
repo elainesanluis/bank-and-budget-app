@@ -39,7 +39,7 @@ function Home() {
         <div className="addFeatures">Other Services
           <div className='add-features-button'>
             <Link to="/otherservices">
-            <button id='features' className='addfeatures-btn'><i class="fa-solid fa-rectangle-list home-icons"></i></button>
+            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-rectangle-list home-icons"></i></button>
             </Link>
         </div>
         </div>
