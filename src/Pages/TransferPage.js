@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import '../Pages/TransferPage.css';
 import { generateTransactionNumber } from '../components/TransactionNumber'; 
-import TransferDetailsModal from '../components/TransferDetailsModal'; 
+import TransferDetailsModal from '../Pages/TransferDetailsModal'; 
 import logo from '../images/logo.png';
 
 function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }) {
@@ -111,7 +111,7 @@ updateTransactionDetails(
       transactionTime,
       transactionDate,
     );
-    // updateAccountList(updatedAccounts);
+    
   };
 
   return (
