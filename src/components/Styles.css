@@ -17,6 +17,8 @@
     border: none;
     background-color: none;
     color: none;
+    font-size: 60px;
+    text-shadow: 3px 3px 10px gray;
 }
 
 .transactions-main {

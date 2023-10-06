@@ -51,6 +51,11 @@ table {
     
 }
 
-.fa-user-plus {
-    text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.5);
+.home-button-icon {
+    font-size: 60px;
+    text-shadow: 3px 3px 10px gray;
+}
+
+.accounts-icon {
+    text-shadow: 1px 3px 5px gray;
 }

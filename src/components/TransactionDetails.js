@@ -31,7 +31,7 @@ function TransactionDetails({ type, accountName, amount,
           <tr>
             <th colSpan="2">
               <div className="transaction-details-heading">
-                <i className="fa-solid fa-receipt"></i>
+                <i className="fa-solid fa-receipt transaction-icon"></i>
                 <h3>{type} Transaction Details</h3>
               </div>
             </th>

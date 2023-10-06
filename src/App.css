@@ -76,9 +76,10 @@ body {
     border-radius: 5px;
   }
 
-  .fa-solid {
+  .home-button-icon {
     font-size: 60px;
     text-shadow: 3px 3px 10px gray;
+    border-radius: 5px;
   }
 
   .transactions, .userAccount {
@@ -101,7 +102,7 @@ body {
   .trans-button, .create-account-btn, .user-account-btn, .addfeatures-btn {
     width: 130px;
     height: 80px;
-    background-color: #fff;
+    background-color: white;
     border: black;
     border-radius: 5px;
   }

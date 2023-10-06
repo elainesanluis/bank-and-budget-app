@@ -57,7 +57,7 @@ function AccountsPage({ accounts, updateAccountList }) {
       <br />
       <div className='accounts-heading'>
       <h2>Accounts</h2>
-      <Link to="/create-account" className='accountspage-add-user'><i className="fa-solid fa-user-plus"></i></Link>
+      <Link to="/create-account" className='accountspage-add-user'><i className="fa-solid fa-user-plus home-button-icon"></i></Link>
       </div>
       <div className='account-container'>
       <table>
@@ -81,7 +81,7 @@ function AccountsPage({ accounts, updateAccountList }) {
               <td>{account.accountNumber}</td>
               <td>{account.createdAt.toLocaleDateString()}</td>
               <td>{account.userEmail}</td>
-              <td><button className="edit-button" onClick={() => openEditModal(account)}><i className="fa-solid fa-pencil"></i></button></td>
+              <td><button className="edit-button" onClick={() => openEditModal(account)}><i className="fa-solid fa-pencil accounts-icon"></i></button></td>
             </tr>
           ))}
 
