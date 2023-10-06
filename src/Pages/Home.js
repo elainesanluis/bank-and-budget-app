@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../Pages/Home.css';
 
 function Home() {
   return (
@@ -13,30 +14,30 @@ function Home() {
         <div className="userAccount">Accounts
           <div className='dashboard-container'>
             <Link to="/accounts">
-              <button id='userAccounts' className='user-account-btn'><i className="fa-solid fa-users home-button-icon"></i></button>
+              <button id='userAccounts' className='user-account-btn'><i className="fa-solid fa-users home-icons"></i></button>
             </Link>
           </div>
         </div>
         <div className="createAccount">Create Account
           <div id='createAccount' className='create-ccount-button dashboard-container'>
             <Link to="/create-account">
-              <button id='create-account-btn' className='create-account-btn'><i className="fa-solid fa-user-plus home-button-icon"></i></button>
+              <button id='create-account-btn' className='create-account-btn'><i className="fa-solid fa-user-plus home-icons"></i></button>
             </Link>
           </div>
         </div>
         <div className="transactions">Transactions
           <div className='transaction-buttons'>
             <Link to="/transactions">
-              <button id="deposit-withdraw-btn" className='trans-button'><i className="fa-solid fa-wallet home-button-icon"></i>Deposit/Withdraw</button>
+              <button id="deposit-withdraw-btn" className='trans-button'><i className="fa-solid fa-wallet home-icons"></i>Deposit/Withdraw</button>
             </Link>
             <Link to="/transfer">
-              <button id="transfer-btn" className='trans-button'><i className="fa-solid fa-money-bill-transfer home-button-icon"></i>Transfer</button>
+              <button id="transfer-btn" className='trans-button'><i className="fa-solid fa-money-bill-transfer home-icons"></i>Transfer</button>
             </Link>
           </div>
         </div>
         <div className="addFeatures">Additional Features
           <div className='add-features-button'>
-            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift home-button-icon"></i></button>
+            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift home-icons"></i></button>
           </div>
         </div>
         <div className="budgetApp">Budget App</div>

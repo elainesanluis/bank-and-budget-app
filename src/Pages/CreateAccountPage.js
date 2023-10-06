@@ -75,7 +75,7 @@ function CreateAccountPage({ addAccount, accounts }) {
       <br />
 
       <div id='create-account-form'>
-        <h2>Create Account</h2>
+        <h2 className='page-heading'>Create Account</h2>
         <form id='create-form' onSubmit={handleSubmit}>
           <label htmlFor='firstName' className='createAccountLabel'>First Name: </label><br />
           <input

@@ -117,7 +117,7 @@ updateTransactionDetails(
     <br/>
     <br/>
     <br/>
-      <h2>Transfer</h2>
+      <h2 className='page-heading'>Transfer</h2>
       <div className="transfer-container">
         <div>
         <label htmlFor="senderAccount" className='transferpage-label'>Sender Account: </label><br />

@@ -1,8 +1,7 @@
 // AccountsPage.js
 import React from 'react';
-import './Accounts.css';
 import { Link } from 'react-router-dom';
-import '../components/layout.css';
+import '../Pages/Accounts.css';
 import EditAccountModal from '../components/EditAccountModal';
 import { useState } from 'react';
 import '../components/EditAccountModal.css';
@@ -56,8 +55,8 @@ function AccountsPage({ accounts, updateAccountList }) {
       <br />
       <br />
       <div className='accounts-heading'>
-      <h2>Accounts</h2>
-      <Link to="/create-account" className='accountspage-add-user'><i className="fa-solid fa-user-plus home-button-icon"></i></Link>
+      <h2 className='page-heading'>Accounts</h2>
+      <Link to="/create-account" className='accountspage-add-user'><i className="fa-solid fa-user-plus add-account-icon"></i></Link>
       </div>
       <div className='account-container'>
       <table>

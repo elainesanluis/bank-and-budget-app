@@ -1,10 +1,12 @@
-h2 {
+.page-heading {
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 5%;
     color:  rgb(179, 59, 59);
     text-shadow: 2px 8px 10px rgba(0, 0, 0, 0.5);
     font-size: 40px;
+    margin: 0;
+    padding: 10px;
 }
 
 .deposit-container, .withdraw-container {
