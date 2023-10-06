@@ -36,9 +36,9 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className="addFeatures">Additional Features
+        <div className="addFeatures">Other Services
           <div className='add-features-button'>
-            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift home-icons"></i></button>
+            <button id='features' className='addfeatures-btn'><i class="fa-solid fa-rectangle-list home-icons"></i></button>
         </div>
         </div>
         <div className="budgetApp">Budget App</div>
