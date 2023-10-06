@@ -78,4 +78,6 @@
     color: #fff;
     background-color: black;
     border-radius: 3px;
+    align-self: center;
+    justify-self: center;
 }

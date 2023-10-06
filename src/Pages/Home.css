@@ -1,7 +1,7 @@
 .budgetApp {
     padding: 5px;
     border-radius: 10px;
-    border: solid #525151;
+    /* border: solid #525151; */
     background-color: #fff;
     display: grid;
   }

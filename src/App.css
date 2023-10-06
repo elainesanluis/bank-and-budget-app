@@ -41,7 +41,7 @@ body {
   .budgetApp {
     grid-area: 3 / 1 / 5 / 5;
     background-color: #fff;
-    border: solid #525151;
+    /* border: solid #525151; */
     border-radius: 5px;
   }
   

@@ -57,6 +57,7 @@ export default function NewTransactions({ onAddTransaction }) {
       return null; // Don't render the modal if it's closed
     }
 
+    
     return (
       <div className="modal">
         <div className="modal-content">

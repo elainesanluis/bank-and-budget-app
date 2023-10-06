@@ -1,27 +1,18 @@
-import './App.css';
+import './TransactionHistory.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AccountsPage from './Pages/AccountsPage';
-import CreateAccountPage from './Pages/CreateAccountPage';
-import TransactionsPage from './Pages/TransactionsPage';
-import TransferPage from './Pages/TransferPage';
-import Home from './Pages/Home';
 import NewTransactions from './Pages/NewTransactions-BudgetApp';
 import Modal from 'react-modal'
 
-function App() {
+function TransactionHistory() {
   const [transactions, setTransactions] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [editTransactionData, setEditTransactionData] = useState({});
   const [deleteTransactionId, setDeleteTransactionId] = useState(null);
   const [modalMode, setModalMode] = useState('edit');
 
-  // Function to add a new transaction
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
-    
-    // Deduct the transaction amount from the balance
-    setBalance(balance - newTransaction.amount);
+    onAddTransaction={addTransaction}
   };
 
   // Function to open the edit modal
@@ -70,20 +61,10 @@ function App() {
     setModalIsOpen(false);
     setDeleteTransactionId(null);
   };
+
+
   
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/accounts" element={<AccountsPage />} />
-        <Route path="/create-account" element={<CreateAccountPage />} />
-        <Route path="/transactions" element={<TransactionsPage />} />
-        <Route path="/transfer" element={<TransferPage />} />
-        <Route
-          path="/new-transactions"
-          element={
-            <div>
-              <NewTransactions onAddTransaction={addTransaction} />
               <div className='tranx-history'>
                 <h3>Transaction History</h3>
                 <table>
@@ -114,7 +95,8 @@ function App() {
                   </tbody>
                 </table>
               </div>
-               {/* Edit and Delete Modals */}        
+               {/* Edit and Delete Modals */}
+            <div>       
            <Modal
              isOpen={modalIsOpen}
              onRequestClose={closeEditModal}
@@ -204,22 +186,9 @@ function App() {
                    <button onClick={confirmDeleteTransaction}>Delete</button>
                   </>
                 )}
-              </Modal>
-            </div>
-          }
-        />
-      </Routes>
-    </Router>
+            </Modal>
+            </div> 
   );
 }
 
-export default App;
-
-export const accounts = [
-  { firstName: 'John', lastName: 'Doe', client1Balance: 1000 },
-  { firstName: 'Jane', lastName: 'Doe', client1Balance: 500 },
-];
-
-export const addAccount = (account) => {
-  accounts.push(account);
-};
+export default TransactionHistory;
