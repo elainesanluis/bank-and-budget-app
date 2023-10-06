@@ -37,10 +37,6 @@
     font-weight: 700;
   }
 
-  .addFeatures {
-
-  }
-
   .create-ccount-button, .dashboard-container, .add-features-button {
     display: flex;
     flex-direction: column;

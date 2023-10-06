@@ -9,6 +9,7 @@ import Home from './Pages/Home';
 import DepositFormPage from './Pages/DepositForm';
 import WithdrawFormPage from './Pages/WithdrawForm';
 import Accounts from './Pages/Accounts';
+import OtherServices from './Pages/OtherServices';
 
 function App() {
   const [accountList, setAccountList] = useState([
@@ -125,6 +126,7 @@ return (
         <Route path="/deposit" element={<DepositFormPage />} />
         <Route path="/withdraw" element={<WithdrawFormPage />} />
         <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
+        <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
     </Routes>
     </Router>
     
