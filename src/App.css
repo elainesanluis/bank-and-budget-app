@@ -4,9 +4,14 @@ body {
   
   h1 {
     color: #3c393e;
+    position: fixed;
+    top: 35px;
+    left: 120px;
   }
   
-  img {
+  .bankLogo {
+    position: fixed;
+    top: 20Px;
     width: 100px;
     float: left;
     margin: 10px;

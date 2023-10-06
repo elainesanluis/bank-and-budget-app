@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/Styles.css';
+import logo from '../images/logo.png';
 
 function CreateAccountPage({ addAccount, accounts }) {
   // Initialize state to hold submitted account details
@@ -63,11 +64,11 @@ function CreateAccountPage({ addAccount, accounts }) {
         <Link to="/">
           <img
             className='bankLogo'
-            src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
+            src={logo}
             alt='Bank Logo'
           />
         </Link>
-        <h1>Bank of Avion School of the Philippines</h1>
+        <h1>Bank of Avion School</h1>
       </div>
       <br />
       <br />

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import '../Pages/TransferPage.css';
 import { generateTransactionNumber } from '../components/TransactionNumber'; 
 import TransferDetailsModal from '../components/TransferDetailsModal'; 
+import logo from '../images/logo.png';
 
 function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }) {
   
@@ -110,9 +111,9 @@ updateTransactionDetails(
     <div>
       <div id='create-account-logo'>
     <Link to="/">
-        <img className='bankLogo' src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png' alt='Bank Logo' />
+        <img className='bankLogo' src={logo} alt='Bank Logo' />
       </Link>
-      <h1>Bank of Avion School of the Philippines</h1>
+      <h1>Bank of Avion School</h1>
     </div>
     <br/>
     <br/>

@@ -5,6 +5,7 @@ import '../components/Styles.css';
 import DepositForm from './DepositForm';
 import WithdrawForm from './WithdrawForm';
 import TransactionDetails from '../components/TransactionDetails';
+import logo from '../images/logo.png';
 
 function TransactionsPage({accounts}) {
   const [showDepositForm, setShowDepositForm] = useState(false);
@@ -39,9 +40,9 @@ return (
     <div>
       <div id='create-account-logo'>
     <Link to="/">
-        <img className='bankLogo' src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png' alt='Bank Logo' />
+        <img className='bankLogo' src={logo} alt='Bank Logo' />
       </Link>
-      <h1>Bank of Avion School of the Philippines</h1>
+      <h1>Bank of Avion School</h1>
     </div>
     <br/>
     <br/>

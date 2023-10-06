@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Pages/Home.css';
+import logo from '../images/logo.png';
 
 function Home() {
   return (
     <div className="mainPage">
       <Link to="/">
-        <img className='bankLogo' src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png' alt='Bank Logo' />
+        <img className='bankLogo' src={logo} alt='Bank Logo' />
       </Link>
-      <h1>Bank of Avion School of the Philippines</h1>
+      <h1>Bank of Avion School</h1>
       <div className="dashBoard">
         <div className="greetings">Greetings!</div>
         <div className="userAccount">Accounts
