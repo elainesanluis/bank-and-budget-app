@@ -32,7 +32,7 @@ function TransactionDetails({ type, accountName, amount,
             <th colSpan="2">
               <div className="transaction-details-heading">
                 <i className="fa-solid fa-receipt transaction-icon"></i>
-                <h3>{type} Transaction Details</h3>
+                <h3 className='transactiondetails-heading'>{type} Transaction Details</h3>
               </div>
             </th>
           </tr>
@@ -64,7 +64,7 @@ function TransactionDetails({ type, accountName, amount,
           </tr>
         </tbody>
       </table>
-      <button id='close-transaction-details' onClick={closeTransactionDetails}>Close Transaction Details</button>
+      <button id='close-transaction-details' onClick={closeTransactionDetails}>Close</button>
       </div>
     </div>
   );

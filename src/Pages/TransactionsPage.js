@@ -50,8 +50,8 @@ return (
       
       <h2 className='page-heading'>Transactions</h2>
       <div className='deposit-withdraw'>
-      <i id='deposit-btn' className="fa-solid fa-wallet deposit-withdraw-btn" onClick={handleDepositClick} ></i><h3>Deposit</h3>
-      <i id='withdraw-btn' className="fa-solid fa-money-bill deposit-withdraw-btn" onClick={handleWithdrawClick}></i><h3>Withdraw</h3>
+      <i id='deposit-btn' className="fa-solid fa-wallet deposit-withdraw-btn" onClick={handleDepositClick} ></i><h3 className='deposit-withdraw-title'>Deposit</h3>
+      <i id='withdraw-btn' className="fa-solid fa-money-bill deposit-withdraw-btn" onClick={handleWithdrawClick}></i><h3 className='deposit-withdraw-title'>Withdraw</h3>
       
       
       </div>

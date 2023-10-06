@@ -19,6 +19,7 @@
     color: none;
     font-size: 60px;
     text-shadow: 3px 3px 10px gray;
+    padding: 10px;
 }
 
 .transactions-main {
@@ -38,12 +39,17 @@
 
 .deposit-withdrawal-container {
     position: absolute;
-    top: 45%;
+    top: 48%;
     left: 5%;
 }
 
 #deposit-money, #withdraw-money {
     font-size: 20px;
+}
+
+
+.deposit-withdraw-title {
+    text-align: center;
 }
 
 #deposit-money:hover, #withdraw-money:hover {
@@ -84,6 +90,16 @@ visibility: hidden;
     
 }
 
+.transaction-icon {
+    font-size: 60px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.transactiondetails-heading {
+    margin-top: 10px;
+}
+
 /* Create Account Page */
 .error-message {
     color: red;
@@ -103,5 +119,14 @@ visibility: hidden;
 }
 
 #firstName, #lastName, #clientBalance, #userEmail, #userPassword {
+    font-size: 20px;
+}
+
+/* Transaction Details */
+th, td {
+    background-color: white;
+}
+
+#close-transaction-details {
     font-size: 20px;
 }
