@@ -1,7 +1,7 @@
 // WithdrawForm.js
 import React, { useState } from 'react';
 import '../components/layout.css';
-import '../components/TransactionsPage.css';
+import '../components/Styles.css';
 import {generateTransactionNumber } from '../components/TransactionNumber';
 import TransactionDetails from '../components/TransactionDetails'; 
 
@@ -55,7 +55,7 @@ function WithdrawForm({ accounts, updateTransactionDetails  }) {
   return (
     <div>
       <div className='withdraw-container'>
-      <label htmlFor='withdrawAccount'>Withdraw Account: </label>
+      <label htmlFor='withdrawAccount' className='withdrawAccount'>Withdraw Account: </label>
       <input
       id='withdrawAccount'
       type="number"
@@ -63,7 +63,7 @@ function WithdrawForm({ accounts, updateTransactionDetails  }) {
         onChange={(e) => setAccountNumber(e.target.value)}
         placeholder="Enter account number"
       />
-      <label htmlFor='withdrawAmount'>Withdraw Amount: </label>
+      <label htmlFor='withdrawAmount' className='withdrawAmount'>Withdraw Amount: </label>
       <input
       id='withdrawAmount'
         type="number"

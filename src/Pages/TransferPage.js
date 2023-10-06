@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import '../Pages/TransferPage.css';
 import { generateTransactionNumber } from '../components/TransactionNumber'; 
+import TransferDetailsModal from '../components/TransferDetailsModal'; 
 
 function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }) {
   
@@ -22,6 +23,7 @@ function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }
       setTransactionDetails(null); 
       return;
     }
+
 // Convert sender and receiver account numbers to numbers
 const senderAccountNumber = parseInt(senderAccount);
 const receiverAccountNumber = parseInt(receiverAccount);
@@ -57,7 +59,11 @@ const transferAmountFloat = parseFloat(transferAmount);
       setTransactionDetails(null); 
       setSuccessMessage('');
       return;
-    }
+    } else {
+      setSuccessMessage('Transfer succesful!');
+      setErrorMessage('');
+      setTransactionDetails(true)
+}
 
 // Update sender and receiver account balances
 const updatedSenderAccount = {
@@ -71,7 +77,7 @@ const updatedReceiverAccount = {
     };
 
     handleTransferMoney(updatedSenderAccount, updatedReceiverAccount);
-    setSuccessMessage('Transfer successful');
+    setSuccessMessage('Transfer successful!');
 
     setTransactionDetails({
       type: 'Transfer',
@@ -81,17 +87,22 @@ const updatedReceiverAccount = {
       transactionNumber,
     });
 
-  // Clear input fields after successful transfer
-  setSenderAccount('');       // Clear sender account input
-  setReceiverAccount('');     // Clear receiver account input
-  setTransferAmount('');      // Clear transfer amount input
+// Clear input fields after successful transfer
+setSenderAccount('');       // Clear sender account input
+setReceiverAccount('');     // Clear receiver account input
+setTransferAmount('');      // Clear transfer amount input
 
-    updateTransactionDetails(
+const currentDate = new Date();
+    const transactionTime = currentDate.toLocaleTimeString();
+    const transactionDate = currentDate.toLocaleDateString();
+updateTransactionDetails(
       'Transfer',
       senderAccountObj.firstName,
       receiverAccountObj.firstName,
       transferAmountFloat,
-      transactionNumber
+      transactionNumber,
+      transactionTime,
+      transactionDate,
     );
   };
 
@@ -109,7 +120,7 @@ const updatedReceiverAccount = {
       <h2>Transfer</h2>
       <div className="transfer-container">
         <div>
-        <label htmlFor="senderAccount">Sender Account: </label><br />
+        <label htmlFor="senderAccount" className='transferpage-label'>Sender Account: </label><br />
         <input
         type='text'
           id="senderAccount"
@@ -120,7 +131,7 @@ const updatedReceiverAccount = {
       </div>
 
       <div>
-        <label htmlFor="receiverAccount">Receiver Account: </label><br />
+        <label htmlFor="receiverAccount" className='transferpage-label'>Receiver Account: </label><br />
         <input
         type='text'
           id="receiverAccount"
@@ -130,7 +141,7 @@ const updatedReceiverAccount = {
         ></input>
       </div>
       <div>
-        <label htmlFor="transferAmount">Transfer Amount: </label><br />
+        <label htmlFor="transferAmount" className='transferpage-label'>Transfer Amount: </label><br />
         <input
           type="text"
           id="transferAmount"
@@ -147,15 +158,15 @@ const updatedReceiverAccount = {
       </div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       {successMessage && <div className="success-message">{successMessage}</div>}
-      {transactionDetails && (
-        <div className="transaction-details">
-          <p>Transaction Type: {transactionDetails.type}</p>
-          <p>Sender: {transactionDetails.senderAccount}</p>
-          <p>Receiver: {transactionDetails.receiverAccount}</p>
-          <p>Amount: {transactionDetails.amount}</p>
-          <p>Transaction Number: {transactionDetails.transactionNumber}</p>
-        </div>
-      )}
+      <TransferDetailsModal
+        type={transactionDetails?.type}
+        senderAccount={transactionDetails?.senderAccount}
+        receiverAccount={transactionDetails?.receiverAccount}
+        amount={transactionDetails?.amount}
+        transactionNumber={transactionDetails?.transactionNumber}
+        isVisible={transactionDetails !== null}
+        onClose={() => setTransactionDetails(null)}
+      />
     </div>
   );
 }

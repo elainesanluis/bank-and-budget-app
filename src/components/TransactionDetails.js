@@ -1,7 +1,6 @@
 // TransactionDetails.js
 import React from 'react';
-import '../components/TransactionsPage.css';
-import { useState } from 'react';
+import '../components/Styles.css';
 
 function TransactionDetails({ type, accountName, amount,
   accountNumber, transactionNumber, transactionDate,

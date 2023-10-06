@@ -1,7 +1,7 @@
 // DepositForm.js
 import React, { useState } from 'react';
 // import '../components/layout.css';
-import '../components/TransactionsPage.css';
+import '../components/Styles.css';
 import {generateTransactionNumber } from '../components/TransactionNumber';
 
 function DepositForm({ accounts, updateTransactionDetails }) {
@@ -51,14 +51,14 @@ function DepositForm({ accounts, updateTransactionDetails }) {
   return (
     <div>
       <div className='deposit-container'>
-      <label htmlFor='depositAccount'>Deposit Account: </label>
+      <label htmlFor='depositAccount' className='depositAccountLabel'>Deposit Account: </label>
       <input
         id='depositAccount'
         type="number"
         value={accountNumber}
         onChange={(e) => setAccountNumber(e.target.value)}
         placeholder="Enter account number"/>
-      <label htmlFor='depositAmount'>Deposit Amount: </label>
+      <label htmlFor='depositAmount' className='depositAmountLabel'>Deposit Amount: </label>
       <input
       id='depositAmount'
         type="number"

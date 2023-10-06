@@ -15,3 +15,67 @@ button:hover {
   background-color: rgb(179, 59, 59);
   color: white;
 }
+
+.transfer-details-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.transfer-details-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.transfer-details-container.visible {
+  visibility: visible;
+  z-index: 999;
+}
+
+.transfer-details-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.transfer-details-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px); 
+  text-align: center;
+}
+
+.transfer-details-container.visible {
+  visibility: visible;
+  z-index: 999;
+}
+
+.transferpage-label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#senderAccount, #receiverAccount, #transferAmount {
+  font-size: 20px;
+}

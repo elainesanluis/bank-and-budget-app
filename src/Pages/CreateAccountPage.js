@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../Pages/CreateAccountPage.css';
+import '../components/Styles.css';
 import '../components/layout.css';
 
 function CreateAccountPage({ addAccount, accounts }) {
@@ -77,7 +77,7 @@ function CreateAccountPage({ addAccount, accounts }) {
       <div id='create-account-form'>
         <h2>Create Account</h2>
         <form id='create-form' onSubmit={handleSubmit}>
-          <label htmlFor='firstName'>First Name: </label><br />
+          <label htmlFor='firstName' className='createAccountLabel'>First Name: </label><br />
           <input
             id='firstName'
             type='text'
@@ -94,7 +94,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
-          <label htmlFor='lastName'>Last Name: </label><br />
+          <label htmlFor='lastName' className='createAccountLabel'>Last Name: </label><br />
           <input
             id='lastName'
             type='text'
@@ -111,7 +111,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
-          <label htmlFor='clientBalance'>Deposit Amount: </label><br />
+          <label htmlFor='clientBalance' className='createAccountLabel'>Deposit Amount: </label><br />
           <input
             id='clientBalance'
             type='number'
@@ -129,7 +129,7 @@ function CreateAccountPage({ addAccount, accounts }) {
             }
           />{' '}
           <br />
-          <label htmlFor='userEmail'>Email Address: </label><br />
+          <label htmlFor='userEmail' className='createAccountLabel'>Email Address: </label><br />
           <input
             id='userEmail'
             type='email'
@@ -144,7 +144,7 @@ function CreateAccountPage({ addAccount, accounts }) {
               })
             }
             />{' '}<br/>
-            <label htmlFor='userPassword'>Password: </label><br />
+            <label htmlFor='userPassword' className='createAccountLabel'>Password: </label><br />
             <input 
             id='userPassword'
             name='userPassword'
