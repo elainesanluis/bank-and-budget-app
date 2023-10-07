@@ -17,12 +17,12 @@ function TransferDetailsModal({ type, senderAccount, receiverAccount, amount, tr
       <div className="transfer-details-modal">
         <table>
           <thead>
-          <th colSpan="2">
-              <div className="transfer-details-heading">
+            <tr>
+              <th colSpan="6" className="transfer-details-heading">
                 <i className="fa-solid fa-receipt transaction-icon"></i>
           <h3>{type} Details</h3>
-          </div>
           </th>
+          </tr>
           </thead>
           <tbody>
             <tr>

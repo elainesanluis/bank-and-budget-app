@@ -1,20 +1,25 @@
 import React from 'react';
-import '../Pages/TransferDetailsModal'
+import '../Pages/TransactionLogs.css';
 
 function TransactionLogs({ logs }) {
   return (
     <div className='transactionlogsmodal'>
-      <table className='transactionlogstable'>
-      <h3>Transaction Logs</h3>
-        <thead>
-          <tr>
+      <div className='transactionlogstable'>
+      <table>
+      <thead>
+            <tr>
+              <th colSpan="5">
+                <h3>Transaction Logs</h3>
+              </th>
+            </tr>
+            <tr>
             <th>Date</th>
             <th>Type</th>
             <th>Account</th>
             <th>Amount</th>
             <th>Transaction Number</th>
-          </tr>
-        </thead>
+            </tr>
+          </thead>
         <tbody>
           {logs.map((log, index) => (
             <tr key={index}>
@@ -26,7 +31,8 @@ function TransactionLogs({ logs }) {
             </tr>
           ))}
         </tbody>
-      </table>
+        </table>
+      </div>
     </div>
   );
 }

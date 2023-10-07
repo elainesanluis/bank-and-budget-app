@@ -10,6 +10,7 @@ import DepositFormPage from './Pages/DepositForm';
 import WithdrawFormPage from './Pages/WithdrawForm';
 import Accounts from './Pages/Accounts';
 import OtherServices from './Pages/OtherServices';
+import { generateTransactionNumber } from './components/TransactionNumber';
 
 function App() {
   const [accountList, setAccountList] = useState([
@@ -20,10 +21,15 @@ function App() {
     { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date(), userEmail: 'JANEDOE@GMAIL.COM'},
     { firstName: 'JOHN', lastName: 'DOE', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
   ]);
+  const [transactionLogs, setTransactionLogs] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
   const updateAccountList = (newAccountList) => {
     setAccountList(newAccountList);
+  };
+
+  const updateTransactionLogs = (transactionDetails) => {
+    setTransactionLogs([...transactionLogs, transactionDetails]);
   };
 
 const addAccount = (accountDetails) => {
@@ -52,8 +58,21 @@ userEmail: userEmailUpper,
 
 setAccountList([...accountList, newAccount]);
 setErrorMessage('');
+
+const transactionDetails = {
+  type: 'Account Creation',
+  accountName: `${firstNameUpper} ${lastNameUpper}`,
+  accountNumber: newAccountNumber,
+  amount: 0, // Since no money is deposited when creating an account
+  transactionNumber: generateTransactionNumber('Account Creation'),
+  transactionTime: new Date().toLocaleTimeString(),
+  transactionDate: new Date().toLocaleDateString(),
+};
+updateTransactionLogs(transactionDetails);
+
+setErrorMessage('');
 return true;
-  };
+};
 
 const handleDeposit = (accountName, amount) => {
   const updatedAccounts = accountList.map((account) => {
@@ -65,6 +84,21 @@ const handleDeposit = (accountName, amount) => {
       return account;
     });
     setAccountList(updatedAccounts);
+
+    const selectedAccount = accountList.find((account) => account.firstName === accountName);
+
+    const transactionDetails = {
+      type: 'Deposit',
+      accountName: `${selectedAccount.firstName} ${selectedAccount.lastName}`,
+      accountNumber: selectedAccount.accountNumber,
+      amount: amount,
+      transactionNumber: generateTransactionNumber('Deposit'),
+      transactionTime: new Date().toLocaleTimeString(),
+      transactionDate: new Date().toLocaleDateString(),
+    };
+    
+    updateTransactionLogs(transactionDetails);
+
   };
 
 const handleWithdraw = (accountName, amount) => {
@@ -78,9 +112,21 @@ const handleWithdraw = (accountName, amount) => {
         return account;
       });
       setAccountList(updatedAccounts);
+
+      const selectedAccount = accountList.find((account) => account.firstName === accountName);
+      const transactionDetails = {
+        type: 'Withdraw',
+        accountName:  `${selectedAccount.firstName} ${selectedAccount.lastName}`,
+        accountNumber: selectedAccount.accountNumber,
+        amount: amount,
+        transactionNumber: generateTransactionNumber('Withdraw'),
+        transactionTime: new Date().toLocaleTimeString(),
+        transactionDate: new Date().toLocaleDateString(),
+      };
+      updateTransactionLogs(transactionDetails);
     };
 
-const handleTransferMoney = (senderAccount, receiverAccount) => {
+const handleTransferMoney = (senderAccount, receiverAccount, amount) => {
     const updatedAccounts = accountList.map((account) => {
       if (account.accountNumber === senderAccount.accountNumber) {
         return {
@@ -100,6 +146,18 @@ setAccountList(updatedAccounts);
 console.log('Transfer initiated:');
 console.log('Sender Account:', senderAccount);
 console.log('Receiver Account:', receiverAccount);
+const transactionDetails = {
+  type: 'Transfer',
+  accountName: `${senderAccount.firstName} ${senderAccount.lastName}`,
+  accountNumber: senderAccount.accountNumber,
+  amount: amount,
+  transactionNumber: generateTransactionNumber('Transfer'),
+  transactionDate: new Date().toLocaleDateString(),
+  transactionTime: new Date().toLocaleTimeString(),
+};
+
+updateTransactionLogs(transactionDetails);
+
 };
 
 // Define the updateTransactionDetails function
@@ -127,8 +185,8 @@ return (
             accounts={accountList} 
             onDeposit={handleDeposit} 
             onWithdraw={handleWithdraw} />} />
-        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
-        <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} />} />
+        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList}  />} />
+        <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList} />} />
         <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList} />} />
         <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
     </Routes>

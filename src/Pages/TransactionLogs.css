@@ -20,5 +20,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
   text-align: center;
+  overflow: auto; 
+  max-height: 600px; 
 }
 
+.transactionlogstable.visible {
+    visibility: visible;
+    z-index: 999;
+  }

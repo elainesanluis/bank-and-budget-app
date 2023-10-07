@@ -61,6 +61,9 @@ const transferAmountFloat = parseFloat(transferAmount);
       setSuccessMessage('');
       return;
     } else {
+      const currentDate = new Date();
+      const transactionTime = currentDate.toLocaleTimeString();
+      const transactionDate = currentDate.toLocaleDateString();
       setSuccessMessage('Transfer succesful!');
       setErrorMessage('');
       setTransactionDetails({
@@ -69,6 +72,8 @@ const transferAmountFloat = parseFloat(transferAmount);
         receiverAccount: `${receiverAccountObj.firstName} ${receiverAccountObj.lastName}`,
         amount: transferAmountFloat,
         transactionNumber,
+        transactionDate,
+        transactionTime,
       });
 }
 
@@ -85,14 +90,6 @@ const updatedReceiverAccount = {
 
     handleTransferMoney(updatedSenderAccount, updatedReceiverAccount);
     setSuccessMessage('Transfer successful!');
-
-    // setTransactionDetails({
-    //   type: 'Transfer',
-    //   senderAccount: `${senderAccountObj.firstName} ${senderAccountObj.lastName}`,
-    //   receiverAccount: `${receiverAccountObj.firstName} ${receiverAccountObj.lastName}`,
-    //   amount: transferAmountFloat,
-    //   transactionNumber,
-    // });
 
 // Clear input fields after successful transfer
 setSenderAccount('');       // Clear sender account input
@@ -172,6 +169,8 @@ updateTransactionDetails(
         receiverAccount={transactionDetails?.receiverAccount}
         amount={transactionDetails?.amount}
         transactionNumber={transactionDetails?.transactionNumber}
+        transactionDate={transactionDetails?.transactionDate}
+        transactionTime={transactionDetails?.transactionTime}
         isVisible={transactionDetails !== null}
         onClose={() => setTransactionDetails(null)}
       />

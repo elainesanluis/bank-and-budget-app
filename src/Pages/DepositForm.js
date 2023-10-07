@@ -1,9 +1,10 @@
 // DepositForm.js
 import React, { useState } from 'react';
+// import '../components/layout.css';
 import '../components/Styles.css';
 import {generateTransactionNumber } from '../components/TransactionNumber';
 
-function DepositForm({ accounts, updateTransactionDetails }) {
+function DepositForm({ accounts, updateTransactionDetails}) {
   const [accountNumber, setAccountNumber] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -39,23 +40,23 @@ function DepositForm({ accounts, updateTransactionDetails }) {
           ? selectedAccount
           : account
       );
-
       const updatedTransactionDetails = {
         type: 'Deposit',
         accountName: fullName,
-        accountNumber: selectedAccount.accountNumber, 
+        accountNumber: selectedAccount.accountNumber,
         amount: parseFloat(depositAmount),
         transactionNumber,
         transactionTime,
         transactionDate,
       };
       updateTransactionDetails(updatedTransactionDetails);
-      
     } else {
       setErrorMessage('Please enter a valid deposit amount.');
       setSuccessMessage('');
     }
-  };
+
+    };
+
   return (
     <div>
       <div className='deposit-container'>
