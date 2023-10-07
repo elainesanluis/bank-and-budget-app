@@ -15,6 +15,7 @@ function App() {
   const [editTransactionData, setEditTransactionData] = useState({});
   const [deleteTransactionId, setDeleteTransactionId] = useState(null);
   const [modalMode, setModalMode] = useState('edit');
+  const [balance, setBalance] = useState(0);
 
   // Function to add a new transaction
   const addTransaction = (newTransaction) => {

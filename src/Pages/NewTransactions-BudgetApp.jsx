@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './NewTransactions-Budgetapp.css';
+import './NewTransactions-Budgetapp.css'
+
 export const balance = 0.00;
 
 export default function NewTransactions({ onAddTransaction }) {
@@ -14,17 +15,18 @@ export default function NewTransactions({ onAddTransaction }) {
     e.preventDefault();
 
     const newTransaction = {
-      id: Math.floor(Math.random() * 1000000), // Generate a unique ID (may use a library for this)
+      id: Math.floor(Math.random() * 1000000),
       text,
-      amount: +amount, // Convert to a number
+      amount: +amount,
       owner,
       selectCategory,
       date,
     };
 
+    setBalance(balance - newTransaction.amount);
+
     onAddTransaction(newTransaction);
 
-    // Clear the input fields
     setText('');
     setAmount('');
     setOwner('');
@@ -36,7 +38,6 @@ export default function NewTransactions({ onAddTransaction }) {
   const [amountToAdd, setAmountToAdd] = useState(0);
   const [balance, setBalance] = useState(0.00);
 
-  // Define functions to open and close the modal
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -45,19 +46,16 @@ export default function NewTransactions({ onAddTransaction }) {
     setIsModalOpen(false);
   };
 
-  // Function to add the amount to the balance
   const addToBalance = () => {
     setBalance(balance + amountToAdd);
-    closeModal(); // Close the modal after adding the amount
+    closeModal();
   };
 
-  //  Modal component
-  const Modal = ({ isOpen, onClose }) => {
+  const ModalComponent = ({ isOpen, onClose }) => {
     if (!isOpen) {
-      return null; // Don't render the modal if it's closed
+      return null;
     }
 
-    
     return (
       <div className="modal">
         <div className="modal-content">
@@ -74,30 +72,29 @@ export default function NewTransactions({ onAddTransaction }) {
     );
   };
 
-
   return (
     <div>
-    <div id='create-account-logo'>
-      <Link to="/">
-        <img
-          className='bankLogo'
-          src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
-          alt='Bank Logo'
-        />
-      </Link>
-      <h1>Bank of Avion School of the Philippines</h1>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div className='accountBalance'>
-      <p>Account Balance: &#8369;{balance.toFixed(2)}</p>
-      <button className='addBudget' onClick={openModal}>Add budget</button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
-    </div>
-    <div className="div-newtranx">
-      <h3 className="title-newtranx">New Transaction</h3>
-      <form className="form-newtranx" onSubmit={handleSubmit}>
+      <div id='create-account-logo'>
+        <Link to="/">
+          <img
+            className='bankLogo'
+            src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
+            alt='Bank Logo'
+          />
+        </Link>
+        <h1>Bank of Avion School of the Philippines</h1>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div className='accountBalance'>
+        <p>Account Balance: &#8369;{balance.toFixed(2)}</p>
+        <button className='addBudget' onClick={openModal}>Add budget</button>
+        <ModalComponent isOpen={isModalOpen} onClose={closeModal} />
+      </div>
+      <div className="div-newtranx">
+        <h3 className="title-newtranx">New Transaction</h3>
+        <form className="form-newtranx" onSubmit={handleSubmit}>
         <div className="form-control">
           <label id="label1" htmlFor="text">Name of Expense: </label>
           <input
@@ -166,8 +163,8 @@ export default function NewTransactions({ onAddTransaction }) {
           />
         </div>
         <button className="btn-newtranx">Add Transaction</button>
-      </form>
-    </div>  
+        </form>
+      </div>
     </div>
   );
-}
+};

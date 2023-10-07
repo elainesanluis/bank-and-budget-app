@@ -1,13 +1,8 @@
 .budgetApp {
     padding: 5px;
     border-radius: 10px;
-    /* border: solid #525151; */
     background-color: #fff;
     display: grid;
-  }
-
-.budgetApp {
-    justify-content: center;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 2fr;
     column-gap: 5px;
@@ -19,10 +14,16 @@
   }
 
   .expense-overview {
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 2 / 3 / 3 / 4;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     text-align: center;
+    padding-top: 20px;
+  }
+
+  .budgetAccount {
+    grid-area: 2 / 1 / 3 / 2;
+    border: 0.5px solid rgb(187, 184, 184);
   }
 
   .latest-transactions {
@@ -37,9 +38,9 @@
     /* justify-content: center; */
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 7fr 1fr;
-    row-gap: 1px;
-    padding: 1px;
-    /* align-content: start; */
+    /* row-gap: 1px; */
+    /* padding: 1px;
+    align-content: start; */
   }
 
 
@@ -65,14 +66,14 @@
 
 
   .categories {
-    grid-area: 2 / 3 / 4 / 4;
+    grid-area: 2 / 1 / 4 / 2;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     text-align: center;
   }
 
   .wallet {
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3 / 3 / 4 / 4;
     border: 0.5px solid rgb(187, 184, 184);
     border-radius: 5px;
     display: grid;
@@ -91,11 +92,6 @@
   .title-budgetBalance {
     grid-area: 1 / 1 / 2 / 2;
     /* border: 0.5px solid rgb(187, 184, 184); */
-  }
-
-  .budgetAccount {
-    grid-area: 2 / 1 / 3 / 2;
-    border: 0.5px solid rgb(187, 184, 184);
   }
 
   .addBudget {
@@ -117,5 +113,6 @@
     background-color: black;
     border-radius: 3px;
     align-self: center;
-    justify-self: end;
+    justify-self: center;
+
   }

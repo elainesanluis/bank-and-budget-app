@@ -62,7 +62,7 @@ function Home() {
           <Link to="/new-transactions">
           <button className='add-transactions'>New Transaction</button>
           </Link>
-          <div className='expense-overview'>Total Income - Total Expense = Total Balance</div>
+          <div className='expense-overview'>Total Budget = &#8369;0.00</div>
           <div className='wallet'>
             <p className='title-budgetBalance'>Account Balance</p>
             <p className='budgetBalance'>&#8369;{balance.toFixed(2)}</p>
