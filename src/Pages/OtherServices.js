@@ -3,21 +3,54 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../Pages/OtherServices.css';
+import TransactionLogs from '../Pages/TransactionLogs'; 
 
-function OtherServices({accounts}) {
+function OtherServices() {
 const [accountNumber, setAccountNumber] = useState('');
 const [fromDate, setFromDate] = useState('');
 const [toDate, setToDate] = useState('');
+const [logs, setLogs] = useState([]); 
+const [isModalOpen, setIsModalOpen] = useState(false); 
+const [errorMessage, setErrorMessage] = useState('');
+
 const handleLogRequest = () => {
-    // Perform the logic to fetch transaction logs for the specified account
-    // and date range (fromDate to toDate).
-    // This information can be used to display the transaction logs.
-    console.log('Account Number:', accountNumber);
-    console.log('From Date:', fromDate);
-    console.log('To Date:', toDate);
+
+    // Check if the input fields are empty
+    if (!accountNumber || !fromDate || !toDate) {
+        setErrorMessage('Please input account number and transaction date coverage.');
+        return; // Don't proceed with fetching logs
+      }
+
+      const fetchedLogs = [{
+        date: '2023-10-01',
+        type: 'Deposit',
+        account: '100112345679',
+        amount: 100,
+        transactionNumber: 'TXN12345',
+      },
+      {
+        date: '2023-10-02',
+        type: 'Withdraw',
+        account: '100112345679',
+        amount: 50,
+        transactionNumber: 'TXN12346',
+      },
+    ]; 
+    const filteredLogs = fetchedLogs.filter((log) => {
+        return (
+          log.account === accountNumber &&
+          log.date >= fromDate &&
+          log.date <= toDate
+        );
+      });
+  setLogs(filteredLogs);
+  setIsModalOpen(true);
+  setErrorMessage('');
   };
 
-
+  const closeModal = () => {
+    setIsModalOpen(false); // Close the modal
+  };
 
 return (
 <div>
@@ -62,8 +95,21 @@ return (
       <button id="transaction-log-submit" onClick={handleLogRequest}>
         Get Transaction Logs
       </button>
+      {errorMessage && (
+            <p className="error-message-otherservices">{errorMessage}</p>
+          )}
             </div>
         </div>
+        {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <button className="close-button" onClick={closeModal}>
+              Close
+            </button>
+            <TransactionLogs logs={logs} />
+          </div>
+        </div>
+      )}
     </div>
     )
 }

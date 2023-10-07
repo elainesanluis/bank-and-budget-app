@@ -1,3 +1,7 @@
+.other-services {
+    z-index: -200;
+}
+
 .other-services-container {
     position: absolute;
     top: 35%;
@@ -9,6 +13,14 @@
 .transaction-logs-heading {
     font-size: 23px;
 }
+
+.error-message-otherservices {
+    color: red;
+    position: fixed;
+    bottom: 10%;
+}
+
+
 
 .transaction-logs-label {
     font-size: 20px;
