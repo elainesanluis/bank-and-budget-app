@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Home.css'
-import { balance } from './NewTransactions-BudgetApp';
 
-function Home() {
+
+export default function Home({ balance }) {
 
   const [currentMonthYear, setCurrentMonthYear] = useState('');
 
-  // Function to get the current month and year
   const getCurrentMonthYear = () => {
     const currentDate = new Date();
     const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
@@ -16,16 +15,16 @@ function Home() {
   };
 
   useEffect(() => {
-    // Update the current month and year when the component mounts
     setCurrentMonthYear(getCurrentMonthYear());
   }, []);
+  
 
   return (
     <div className="mainPage">
       <Link to="/">
         <img className='bankLogo' src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png' alt='Bank Logo' />
       </Link>
-      <h1>Bank of Avion School of the Philippines</h1>
+      <h1>Bank of Avion School</h1>
       <div className="dashBoard">
         <div className="greetings">Greetings!</div>
         <div className="userAccount">Accounts
@@ -65,18 +64,18 @@ function Home() {
           <div className='expense-overview'>Total Budget = &#8369;0.00</div>
           <div className='wallet'>
             <p className='title-budgetBalance'>Account Balance</p>
-            <p className='budgetBalance'>&#8369;{balance.toFixed(2)}</p>
+            <p className='budgetBalance'>&#8369;{balance}</p>
           </div>
           <div className='latest-transactions'>
             <p className='title-transactions'>Transactions</p>
             <div className='tranx-list'></div>
             <div className='view-detailed'>View more&gt;&gt;</div>
           </div>
-          <div className='categories'>Expense</div>
+          <div className='categories'>
+            <p>Expense Structure</p>
+          </div>
         </div>
       </div>
     </div>
   );
-}
-
-export default Home;
+};
