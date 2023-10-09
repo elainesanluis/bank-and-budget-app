@@ -63,8 +63,6 @@ const handleDeposit = (accountName, amount) => {
     });
     setAccountList(updatedAccounts);
 
-    const selectedAccount = accountList.find((account) => account.firstName === accountName);
-
   };
 
 const handleWithdraw = (accountName, amount) => {
