@@ -1,5 +1,9 @@
 import './App.css';
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, {useState} from 'react';
+>>>>>>> f337cc81daf30e3a592baa6d05cb31cc6c36f61c
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
