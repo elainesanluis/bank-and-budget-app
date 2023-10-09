@@ -43,7 +43,7 @@ return (
     return (
         <>
         <div className='accountBalance'>
-            <p>Budget Balance: &#8369;{balance}</p>
+            <p>Budget Balance: &#8369;{balance.toFixed(2)}</p>
             <button className='addBudget' onClick={openModal}>Add budget</button>
         </div>
         <ModalComponent isOpen={isModalOpen} onClose={closeModal} />

@@ -54,7 +54,8 @@ export default function TransactionHistory({ transactions, setTransactions }) {
     setModalIsOpen(false);
     setDeleteTransactionId(null);
   };
-  
+
+
   return (
         <>
           <div className='tranx-history'>

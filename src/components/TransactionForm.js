@@ -31,6 +31,7 @@ const handleSubmit = (e) => {
   setDate('');
 };
 
+
 return (
     <>
 <div className="div-newtranx">
