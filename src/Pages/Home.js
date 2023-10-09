@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Pages/Home.css';
 import logo from '../images/logo.png';
 
-function Home() {
+function Home({ accounts }) {
+  const [totalBalance, setTotalBalance] = useState(0);
+  const calculateTotalBalance = () => {
+    // Calculate the total balance by summing up the client balances of all accounts
+    const sum = accounts.reduce((total, account) => total + parseFloat(account.clientBalance), 0);
+    setTotalBalance(sum);
+  };
+
+  useEffect(() => {
+    calculateTotalBalance();
+  }, [accounts]);
+
+  const formattedTotalBalance = totalBalance.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  
+  
+  
   return (
     <div className="mainPage">
       <Link to="/">
@@ -11,7 +29,11 @@ function Home() {
       </Link>
       <h1>Bank of Avion School</h1>
       <div className="dashBoard">
-        <div className="greetings">Greetings!</div>
+        <div className="greetings">
+          <h2>
+        The total balance in the bank is: ${formattedTotalBalance}
+        </h2>
+       </div>
         <div className="userAccount">Accounts
           <div className='dashboard-container'>
             <Link to="/accounts">

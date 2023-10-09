@@ -14,12 +14,12 @@ import { generateTransactionNumber } from './components/TransactionNumber';
 
 function App() {
   const [accountList, setAccountList] = useState([
-    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 500, accountNumber: 100112345679, createdAt: new Date(), userEmail: 'DOEADEER@GMAIL.COM' },
-    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 500, accountNumber: 100112345680, createdAt: new Date(), userEmail: 'AFEMALEDEER@GMAIL.COM'},
-    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 500, accountNumber: 100112345681, createdAt: new Date(), userEmail: 'RAYADROP@GMAIL.COM'},
-    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 500, accountNumber: 100112345682, createdAt: new Date(), userEmail: 'OFGOLDENSUN@GMAIL.COM'},
+    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 1000, accountNumber: 100112345679, createdAt: new Date(), userEmail: 'DOEADEER@GMAIL.COM' },
+    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 1000, accountNumber: 100112345680, createdAt: new Date(), userEmail: 'AFEMALEDEER@GMAIL.COM'},
+    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 1000, accountNumber: 100112345681, createdAt: new Date(), userEmail: 'RAYADROP@GMAIL.COM'},
+    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 1000, accountNumber: 100112345682, createdAt: new Date(), userEmail: 'OFGOLDENSUN@GMAIL.COM'},
     { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date(), userEmail: 'JANEDOE@GMAIL.COM'},
-    { firstName: 'JOHN', lastName: 'DOE', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
+    { firstName: 'JOHN', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
   ]);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -139,7 +139,7 @@ return (
   <div>
     <Router>
     <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home accounts={accountList} />} />
         <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={setAccountList} />} />
         <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} errorMessage={errorMessage}/>} />
         <Route path="/transactions" 
