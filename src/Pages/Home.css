@@ -84,9 +84,7 @@
 }
 
 .greetings:hover,.createAccount:hover, .addFeatures:hover, .userAccount:hover, .transactions:hover {
-  /* background-color: rgba(51, 47, 50, 0.2); */
-  background: rgb(187,183,173);
-  background: linear-gradient(0deg, rgba(187,183,173,1) 9%, rgba(82,78,77,1) 100%);
+background-color: rgba(51, 47, 50, 0.2);
 }
 
 .totalbalance {
