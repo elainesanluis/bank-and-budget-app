@@ -23,7 +23,7 @@ body {
     margin-right: 200px;
     padding: 30px;
     border-radius: 10px;
-    border: solid black;
+    border: solid rgb(109, 103, 103);
     background-color: #fff;
     display: grid;
   }

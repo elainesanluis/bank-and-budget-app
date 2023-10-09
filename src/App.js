@@ -1,6 +1,6 @@
 //App.js
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
@@ -150,6 +150,7 @@ return (
         <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
         <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
         <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
+        <Route path="/new-transactions" element={<NewTransactions/>} />
     </Routes>
     </Router>
     

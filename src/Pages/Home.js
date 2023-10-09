@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../Pages/Home.css';
 import logo from '../images/logo.png';
 
-function Home({ accounts }) {
+export default function Home({ accounts }) {
   const [totalBalance, setTotalBalance] = useState(0);
   const calculateTotalBalance = () => {
     // Calculate the total balance by summing up the client balances of all accounts
@@ -20,14 +20,29 @@ function Home({ accounts }) {
     maximumFractionDigits: 2,
   });
   
+
+  const [currentMonthYear, setCurrentMonthYear] = useState('');
+
+  const getCurrentMonthYear = () => {
+    const currentDate = new Date();
+    const currentDay = currentDate.toLocaleString('default', {day: '2-digit'});
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+    const currentYear = currentDate.getFullYear();
+    return `${currentMonth} ${currentDay}, ${currentYear}`;
+  };
+
+  useEffect(() => {
+    setCurrentMonthYear(getCurrentMonthYear());
+  }, []);
   
-  
+
   return (
     <div className="mainPage">
       <Link to="/">
         <img className='bankLogo' src={logo} alt='Bank Logo' />
       </Link>
       <h1>Bank of Avion School</h1>
+      <p className='today'>Today: <strong> {currentMonthYear} </strong> </p>
       <div className="dashBoard">
         <div className="greetings">
           <h2>
@@ -69,9 +84,12 @@ function Home({ accounts }) {
         </div>
         <div className="budgetApp">Budget App
         <i className="fa-solid fa-calculator"></i></div>
+        <div className="addFeatures">Budget/Expense Tracker
+        <Link to="/new-transactions">
+          <button className='add-transactions'>New Transaction</button>
+          </Link>
+        </div>
+        </div>
       </div>
-    </div>
   );
-}
-
-export default Home;
+};
