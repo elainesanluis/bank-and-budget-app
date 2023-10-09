@@ -11,13 +11,12 @@ export default function NewTransactions() {
   
   const [transactions, setTransactions] = useState([]);
   const [balance, setBalance] = useState(0.00);
+  const [totalTransactions, setTotalTransactions] = useState(0);
 
     const addTransaction = (newTransaction) => {
       setTransactions([...transactions, newTransaction]);
-      
       setBalance(balance - newTransaction.amount);
     };
-    const [totalTransactions, setTotalTransactions] = useState(0);
   
     useEffect (() => {
       let temp = 0;
@@ -30,19 +29,11 @@ export default function NewTransactions() {
  
   return (
     <div>
-      <div id='create-account-logo'>
-        <Link to="/">
-          <img
-            className='bankLogo'
-            src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
-            alt='Bank Logo'
-          />
+      <div id='back-to-home'>
+        <Link style={{textDecoration: 'none', fontSize: '30px'}} to="/">
+          <p className='dashboard'>&#10229;</p>
         </Link>
-        <h1>Bank of Avion School</h1>
       </div>
-      <br />
-      <br />
-      <br />
       <div className='new-tranx'>
         <Header totalTransactions={totalTransactions}/>
         <AccountBalance balance={balance} setBalance={setBalance}/>

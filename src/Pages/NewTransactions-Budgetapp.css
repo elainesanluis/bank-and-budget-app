@@ -1,7 +1,18 @@
-.accountBalance {
-    margin-left: 125px;
-}
+.dashboard {
+    color: rgb(31, 26, 26);
+    margin-top: 40px;
+    margin-left: 20px;
+  }
 
+  .dashboard:hover {
+    color: rgb(179, 59, 59);
+  }
+
+  
+.total-expense-div, .accountBalance {
+    margin-left: 125px;
+    font-size: 30px;
+}
 
 .title-newtranx {
     font-size: 30px;
@@ -74,10 +85,20 @@
     grid-area: 3 / 3 / 4 / 4;
     margin-top: 10px;
     width: 120px;
-    height: 30px;
+    height: 40px;
     color: #fff;
     background-color: black;
     border-radius: 3px;
     align-self: center;
     justify-self: center;
 }
+
+.addBudget {
+    width: 90px;
+    height: 30px;
+    color: #fff;
+    background-color: black;
+    border-radius: 3px;
+    align-self: center;
+    justify-self: center;
+  }

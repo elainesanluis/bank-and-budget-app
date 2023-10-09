@@ -9,9 +9,10 @@ export default function Home({ balance }) {
 
   const getCurrentMonthYear = () => {
     const currentDate = new Date();
+    const currentDay = currentDate.toLocaleString('default', {day: '2-digit'});
     const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
     const currentYear = currentDate.getFullYear();
-    return `${currentMonth} ${currentYear}`;
+    return `${currentMonth} ${currentDay}, ${currentYear}`;
   };
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function Home({ balance }) {
         <img className='bankLogo' src='https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png' alt='Bank Logo' />
       </Link>
       <h1>Bank of Avion School</h1>
+      <p className='today'>Today: <strong> {currentMonthYear} </strong> </p>
       <div className="dashBoard">
         <div className="greetings">Greetings!</div>
         <div className="userAccount">Accounts
@@ -51,31 +53,12 @@ export default function Home({ balance }) {
             </NavLink>
           </div>
         </div>
-        <div className="addFeatures">Additional Features
-          <div className='add-features-button'>
-            <button id='features' className='addfeatures-btn'><i className="fa-solid fa-gift"></i></button>
-          </div>
-        </div>
-        <div className="budgetApp">
-          <p className='expense-summary'>Expense Summary: <strong> Month of {currentMonthYear} </strong> </p>
-          <Link to="/new-transactions">
+        <div className="addFeatures">Budget/Expense Tracker
+        <Link to="/new-transactions">
           <button className='add-transactions'>New Transaction</button>
           </Link>
-          <div className='expense-overview'>Total Budget = &#8369;0.00</div>
-          <div className='wallet'>
-            <p className='title-budgetBalance'>Account Balance</p>
-            <p className='budgetBalance'>&#8369;{balance}</p>
-          </div>
-          <div className='latest-transactions'>
-            <p className='title-transactions'>Transactions</p>
-            <div className='tranx-list'></div>
-            <div className='view-detailed'>View more&gt;&gt;</div>
-          </div>
-          <div className='categories'>
-            <p>Expense Structure</p>
-          </div>
+        </div>
         </div>
       </div>
-    </div>
   );
 };
