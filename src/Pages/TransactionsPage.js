@@ -49,6 +49,7 @@ return (
       <div id='transactions-main' className='transactions-main'>
       
       <h2 className='page-heading'>Transactions</h2>
+      <Link to="/accounts"><i className="fa-solid fa-users link-to-accounts-icon"></i></Link>
       <div className='deposit-withdraw'>
       <i id='deposit-btn' className="fa-solid fa-wallet deposit-withdraw-btn" onClick={handleDepositClick} ></i><h3 className='deposit-withdraw-title'>Deposit</h3>
       <i id='withdraw-btn' className="fa-solid fa-money-bill deposit-withdraw-btn" onClick={handleWithdrawClick}></i><h3 className='deposit-withdraw-title'>Withdraw</h3>
