@@ -103,9 +103,6 @@ const updatedLogs = [...storedLogs, transactionLog];
 // Save the updated logs back to local storage
 localStorage.setItem('transactionLogs', JSON.stringify(updatedLogs));
 
-// // Update the logs state to include the new log
-// setLogs(updatedLogs);
-
 // Update sender and receiver account balances
 const updatedSenderAccount = {
   ...senderAccountObj,

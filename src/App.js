@@ -14,10 +14,10 @@ import { generateTransactionNumber } from './components/TransactionNumber';
 
 function App() {
   const [accountList, setAccountList] = useState([
-    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 1000, accountNumber: 100112345679, createdAt: new Date(), userEmail: 'DOEADEER@GMAIL.COM' },
-    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 1000, accountNumber: 100112345680, createdAt: new Date(), userEmail: 'AFEMALEDEER@GMAIL.COM'},
-    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 1000, accountNumber: 100112345681, createdAt: new Date(), userEmail: 'RAYADROP@GMAIL.COM'},
-    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 1000, accountNumber: 100112345682, createdAt: new Date(), userEmail: 'OFGOLDENSUN@GMAIL.COM'},
+    { firstName: 'DOE', lastName: 'ADEER', clientBalance: 1500, accountNumber: 100112345679, createdAt: new Date(), userEmail: 'DOEADEER@GMAIL.COM' },
+    { firstName: 'AFEMALE', lastName: 'DEER', clientBalance: 1500, accountNumber: 100112345680, createdAt: new Date(), userEmail: 'AFEMALEDEER@GMAIL.COM'},
+    { firstName: 'RAY', lastName: 'ADROP', clientBalance: 1500, accountNumber: 100112345681, createdAt: new Date(), userEmail: 'RAYADROP@GMAIL.COM'},
+    { firstName: 'OFGOLDEN', lastName: 'SUN', clientBalance: 1500, accountNumber: 100112345682, createdAt: new Date(), userEmail: 'OFGOLDENSUN@GMAIL.COM'},
     { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date(), userEmail: 'JANEDOE@GMAIL.COM'},
     { firstName: 'JOHN', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
   ]);

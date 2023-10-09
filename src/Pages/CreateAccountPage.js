@@ -16,7 +16,6 @@ function CreateAccountPage({ addAccount, accounts }) {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [succesMessage, setSuccessMessage] = useState('');
-  const [formattedDepositAmount, setFormattedDepositAmount] = useState('');
 
   // Handle form submission
   const handleSubmit = (e) => {
