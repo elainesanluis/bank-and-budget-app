@@ -1,9 +1,5 @@
 import './App.css';
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import React, {useState} from 'react';
->>>>>>> f337cc81daf30e3a592baa6d05cb31cc6c36f61c
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
@@ -153,7 +149,7 @@ return (
         <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} />} />
         <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
         <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
-        <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
+        <Route path="/otherservices" element={<OtherServices accounts={accountList} />} />
         <Route path="/new-transactions" element={<NewTransactions/>} />
     </Routes>
     </Router>

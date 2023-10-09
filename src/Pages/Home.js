@@ -42,7 +42,7 @@ export default function Home({ accounts }) {
         <img className='bankLogo' src={logo} alt='Bank Logo' />
       </Link>
       <h1>Bank of Avion School</h1>
-      <p className='today'>Today: <strong> {currentMonthYear} </strong> </p>
+      <p className='today'><strong> {currentMonthYear} </strong> </p>
       <div className="dashBoard">
         <div className="greetings">
           <h2>
