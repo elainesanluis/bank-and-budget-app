@@ -30,7 +30,7 @@ const filteredLogs = storedLogs.filter((log) => {
 const logDate = new Date(log.date);
 // Adjust the comparison to consider the entire day
   return (
-    log.account === accountNumber &&
+    (log.account === accountNumber || log.senderAccount === accountNumber || log.receiverAccount === accountNumber) &&
     logDate >= fromDateObj && logDate <= toDateObj
   );
 });

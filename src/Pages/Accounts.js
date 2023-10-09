@@ -101,7 +101,7 @@ function AccountsPage({ accounts, updateAccountList }) {
               <td>{account.createdAt.toLocaleDateString()}</td>
               <td>{account.userEmail}</td>
               <td><button className="edit-button" onClick={() => openEditModal(account)}><i className="fa-solid fa-pencil accounts-icon"></i></button></td>
-              <td><button className="delete-button" onClick={() => openDeleteModal(account)}><i class="fa-solid fa-trash-can accounts-icon"></i></button></td>
+              <td><button className="delete-button" onClick={() => openDeleteModal(account)}><i className="fa-solid fa-trash-can accounts-icon"></i></button></td>
             </tr>
           ))}
 

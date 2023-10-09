@@ -59,12 +59,12 @@ function WithdrawForm({ accounts, updateTransactionDetails }) {
 // Log the deposit transaction
 const transactionLog = {
   date: transactionDate,
-  type: 'Deposit',
+  type: 'Withdrawal',
   account: accountNumber,
   amount: parseFloat(withdrawAmount),
   transactionNumber,
 };
-// Retrieve existing logs from local storage or initialize an empty array
+  // Retrieve existing logs from local storage or initialize an empty array
   const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
   // Update the logs with the new transaction log
   const updatedLogs = [...storedLogs, transactionLog];

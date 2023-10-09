@@ -1,12 +1,12 @@
 // TransferPage.js
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Pages/TransferPage.css';
 import { generateTransactionNumber } from '../components/TransactionNumber'; 
 import TransferDetailsModal from '../Pages/TransferDetailsModal'; 
 import logo from '../images/logo.png';
 
-function TransferPage({accounts, handleTransferMoney, updateTransactionDetails, updateTransactionLogs }) {
+function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }) {
   
   const [senderAccount, setSenderAccount] = useState('');
   const [receiverAccount, setReceiverAccount] = useState('');
@@ -14,11 +14,20 @@ function TransferPage({accounts, handleTransferMoney, updateTransactionDetails, 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [transactionDetails, setTransactionDetails] = useState(null);
+  
+  useEffect(() => {
+    // Initialize local storage for transaction logs if not present
+    if (!localStorage.getItem('transactionLogs')) {
+      localStorage.setItem('transactionLogs', JSON.stringify([]));
+    }
+  }, []);
+
   const handleTransfer = () => {
     const transactionNumber = generateTransactionNumber('Transfer');
     const currentDate = new Date();
     const transactionTime = currentDate.toLocaleTimeString();
     const transactionDate = currentDate.toLocaleDateString();
+    
 
     if (!senderAccount || !receiverAccount || !transferAmount) {
       setErrorMessage('Please fill in all fields');
@@ -76,6 +85,27 @@ const transferAmountFloat = parseFloat(transferAmount);
       });
 }
 
+// Create a new transaction log object
+const transactionLog = {
+  date: transactionDate,
+  time: transactionTime,
+  type: 'Transfer',
+  senderAccount: senderAccountObj.accountNumber,
+  receiverAccount: receiverAccountObj.accountNumber,
+  amount: transferAmountFloat,
+  transactionNumber,
+};
+
+// Retrieve existing logs from local storage or initialize an empty array
+const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
+// Update the logs with the new transaction log
+const updatedLogs = [...storedLogs, transactionLog];
+// Save the updated logs back to local storage
+localStorage.setItem('transactionLogs', JSON.stringify(updatedLogs));
+
+// // Update the logs state to include the new log
+// setLogs(updatedLogs);
+
 // Update sender and receiver account balances
 const updatedSenderAccount = {
   ...senderAccountObj,
@@ -91,9 +121,9 @@ const updatedReceiverAccount = {
     setSuccessMessage('Transfer successful!');
 
 // Clear input fields after successful transfer
-setSenderAccount('');       // Clear sender account input
-setReceiverAccount('');     // Clear receiver account input
-setTransferAmount('');      // Clear transfer amount input
+setSenderAccount('');      
+setReceiverAccount('');    
+setTransferAmount('');      
 
 updateTransactionDetails(
       'Transfer',
@@ -105,23 +135,7 @@ updateTransactionDetails(
       transactionDate,
     );
 
-// Create a new transaction log object
-const transactionLog = {
-  date: transactionDate,
-  time: transactionTime,
-  type: 'Transfer',
-  senderAccount: senderAccountObj.accountNumber,
-  receiverAccount: receiverAccountObj.accountNumber,
-  amount: transferAmountFloat,
-  transactionNumber,
 };
-// Retrieve existing logs from local storage or initialize an empty array
-const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
-// Update the transaction logs in localStorage
-const updatedLogs = [...storedLogs, transactionLog];
-// Save the updated logs back to local storage
-localStorage.setItem('transactionLogs', JSON.stringify(updatedLogs));
-  };
 
   return (
     <div>

@@ -51,6 +51,7 @@ function TransferDetailsModal({ type, senderAccount, receiverAccount, amount, tr
             </tr>
           </tbody>
         </table>
+        <br/>
         <button onClick={closeTransferDetails}>Close</button>
       </div>
     </div>
