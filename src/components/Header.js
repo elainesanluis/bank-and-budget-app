@@ -5,7 +5,7 @@ function Header ({ totalTransactions }) {
 
     return (
             <div className="total-expense-div">
-                <p>Total Expense: &#8369;{totalTransactions}</p>
+                <p>Total Expense: &#8369;{totalTransactions.toFixed(2)}</p>
             </div>
     );
 };

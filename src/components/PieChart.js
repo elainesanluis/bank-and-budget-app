@@ -3,37 +3,42 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS } from "chart.js/auto";
 
 const PieChartComponent = ({ transactions }) => {
-
   const calculateCategoryExpenses = () => {
-    const pieChart = {};
+    const pieChartData = {};
 
     transactions.forEach((transaction) => {
       const category = transaction.selectCategory;
 
-      if (pieChart[category]) {
-        pieChart[category] += transaction.amount;
+      if (pieChartData[category]) {
+        pieChartData[category] += transaction.amount;
       } else {
-        pieChart[category] = transaction.amount;
+        pieChartData[category] = transaction.amount;
       }
     });
 
-    return pieChart;
+    return pieChartData;
   };
 
+  const pieChartData = calculateCategoryExpenses();
 
-  const pieChart = calculateCategoryExpenses();
+  const categoryLabels = Object.keys(pieChartData);
+  const categoryAmounts = Object.values(pieChartData);
 
   const data = {
-    labels: transactions.map((transaction) => transaction.selectCategory),
+    labels: categoryLabels,
     datasets: [
       {
-        data: transactions.map((transaction) => transaction.amount),
+        data: categoryAmounts,
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',
           'rgba(255, 206, 86, 0.6)',
           'rgba(75, 192, 192, 0.6)',
           'rgba(153, 102, 255, 0.6)',
+          'rgba(53, 152, 250, 0.6)',
+          'rgba(103, 100, 95, 0.6)',
+          'rgba(83, 160, 55, 0.6)',
+          // Add more colors if needed
         ],
       },
     ],

@@ -27,6 +27,7 @@ export default function NewTransactions() {
       setTotalTransactions(temp);
     }, [transactions]);
  
+
   return (
     <div>
       <div id='back-to-home'>
@@ -38,8 +39,12 @@ export default function NewTransactions() {
         <Header totalTransactions={totalTransactions}/>
         <AccountBalance balance={balance} setBalance={setBalance}/>
         <TransactionForm onAddTransaction={addTransaction} balance={balance} setBalance={setBalance}/>
-        <TransactionHistory transactions={transactions} setTransactions={setTransactions}/>
-        <PieChartComponent transactions={transactions}/>      
+        {transactions.length > 0 ? (
+          <TransactionHistory transactions={transactions} setTransactions={setTransactions} />
+        ) : null}
+        {transactions.length > 0 ? (
+        <PieChartComponent transactions={transactions}/>
+        ) : null}
       </div>
     </div>
   );
