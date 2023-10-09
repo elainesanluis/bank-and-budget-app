@@ -31,7 +31,7 @@ function Home({ accounts }) {
       <div className="dashBoard">
         <div className="greetings">
           <h2>
-        The total balance in the bank is: <span className='totalbalance'> ${formattedTotalBalance}</span>
+        Total Savings: <span className='totalbalance'> ${formattedTotalBalance}</span>
         </h2>
        </div>
         <div className="userAccount">Accounts

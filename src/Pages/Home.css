@@ -79,17 +79,18 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 40px;
 }
 
 .greetings:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-  .totalbalance {
-    color: green;
-    font-size: 50px;
-    text-shadow: 1px 5px 15px gray;
-    padding: 10px;
+.totalbalance {
+  color: green;
+  font-size: 50px;
+  text-shadow: 1px 5px 15px gray;
+  padding: 10px;
   }
 
 .dashBoard {
