@@ -14,9 +14,11 @@ function TransferPage({accounts, handleTransferMoney, updateTransactionDetails, 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [transactionDetails, setTransactionDetails] = useState(null);
-
   const handleTransfer = () => {
     const transactionNumber = generateTransactionNumber('Transfer');
+    const currentDate = new Date();
+    const transactionTime = currentDate.toLocaleTimeString();
+    const transactionDate = currentDate.toLocaleDateString();
 
     if (!senderAccount || !receiverAccount || !transferAmount) {
       setErrorMessage('Please fill in all fields');
@@ -36,17 +38,17 @@ if (isNaN(senderAccountNumber) || isNaN(receiverAccountNumber)) {
   setTransactionDetails(null);
   return;
 }
-
+// Find sender and receiver account objects
 const senderAccountObj = accounts.find((account) => account.accountNumber === senderAccountNumber);
 const receiverAccountObj = accounts.find((account) => account.accountNumber === receiverAccountNumber);
-
+ // Check if sender and receiver accounts are valid
 if (!senderAccountObj || !receiverAccountObj) {
   setErrorMessage('Invalid sender or receiver account');
   setSuccessMessage('');
   setTransactionDetails(null);
   return;
 }
-//Ensures that the transferAmount is both a valid numeric value and greater than zero
+//Ensure that the transferAmount is both a valid numeric value and greater than zero
 const transferAmountFloat = parseFloat(transferAmount);
   if (isNaN(transferAmountFloat) || transferAmountFloat <= 0) {
       setErrorMessage('Invalid transfer amount');
@@ -61,9 +63,6 @@ const transferAmountFloat = parseFloat(transferAmount);
       setSuccessMessage('');
       return;
     } else {
-      const currentDate = new Date();
-      const transactionTime = currentDate.toLocaleTimeString();
-      const transactionDate = currentDate.toLocaleDateString();
       setSuccessMessage('Transfer succesful!');
       setErrorMessage('');
       setTransactionDetails({
@@ -96,6 +95,16 @@ setSenderAccount('');       // Clear sender account input
 setReceiverAccount('');     // Clear receiver account input
 setTransferAmount('');      // Clear transfer amount input
 
+updateTransactionDetails(
+      'Transfer',
+      senderAccountObj.firstName,
+      receiverAccountObj.firstName,
+      transferAmountFloat,
+      transactionNumber,
+      transactionTime,
+      transactionDate,
+    );
+
 // Create a new transaction log object
 const transactionLog = {
   date: transactionDate,
@@ -106,23 +115,12 @@ const transactionLog = {
   amount: transferAmountFloat,
   transactionNumber,
 };
-
-// Call the updateTransactionLogs function to store the transaction log
-updateTransactionLogs(transactionLog);
-
-const currentDate = new Date();
-    const transactionTime = currentDate.toLocaleTimeString();
-    const transactionDate = currentDate.toLocaleDateString();
-updateTransactionDetails(
-      'Transfer',
-      senderAccountObj.firstName,
-      receiverAccountObj.firstName,
-      transferAmountFloat,
-      transactionNumber,
-      transactionTime,
-      transactionDate,
-    );
-    
+// Retrieve existing logs from local storage or initialize an empty array
+const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
+// Update the transaction logs in localStorage
+const updatedLogs = [...storedLogs, transactionLog];
+// Save the updated logs back to local storage
+localStorage.setItem('transactionLogs', JSON.stringify(updatedLogs));
   };
 
   return (

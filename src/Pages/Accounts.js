@@ -6,10 +6,13 @@ import EditAccountModal from '../components/EditAccountModal';
 import { useState } from 'react';
 import '../components/EditAccountModal.css';
 import logo from '../images/logo.png';
+import DeleteAccountModal from './DeleteAccountModal'; 
 
 function AccountsPage({ accounts, updateAccountList }) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editedAccount, setEditedAccount] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedAccountToDelete, setSelectedAccountToDelete] = useState(null);
 
   const openEditModal = (account) => {
     setEditedAccount(account);
@@ -19,6 +22,16 @@ function AccountsPage({ accounts, updateAccountList }) {
   const closeEditModal = () => {
     setIsEditModalOpen(false);
     setEditedAccount(null);
+  };
+
+  const openDeleteModal = (account) => {
+    setSelectedAccountToDelete(account);
+    setIsDeleteModalOpen(true);
+  };
+
+  const closeDeleteModal = () => {
+    setSelectedAccountToDelete(null);
+    setIsDeleteModalOpen(false);
   };
 
   const handleSaveEditedAccount = (editedAccountData) => {
@@ -42,7 +55,11 @@ function AccountsPage({ accounts, updateAccountList }) {
       // Update the account list state with the edited data
       updateAccountList(updatedAccounts);
     }
-  
+  };
+
+  const onDelete = (accountToDelete) => {
+    const updatedAccounts = accounts.filter((account) => account !== accountToDelete);
+    updateAccountList(updatedAccounts);
   };
 
   return (
@@ -70,7 +87,8 @@ function AccountsPage({ accounts, updateAccountList }) {
             <th>Account Number</th>
             <th>Date Created</th>
             <th>Email</th>
-            <th>Edit Account</th> 
+            <th>Edit Account</th>
+            <th>Delete Account</th>
           </tr>
         </thead>
         <tbody>
@@ -83,6 +101,7 @@ function AccountsPage({ accounts, updateAccountList }) {
               <td>{account.createdAt.toLocaleDateString()}</td>
               <td>{account.userEmail}</td>
               <td><button className="edit-button" onClick={() => openEditModal(account)}><i className="fa-solid fa-pencil accounts-icon"></i></button></td>
+              <td><button className="delete-button" onClick={() => openDeleteModal(account)}><i class="fa-solid fa-trash-can accounts-icon"></i></button></td>
             </tr>
           ))}
 
@@ -94,6 +113,12 @@ function AccountsPage({ accounts, updateAccountList }) {
         onClose={closeEditModal}
         account={editedAccount}
         onSave={handleSaveEditedAccount}
+      />
+      <DeleteAccountModal
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        account={selectedAccountToDelete}
+        onDelete={onDelete}
       />
     </div>
   );

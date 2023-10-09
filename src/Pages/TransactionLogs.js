@@ -1,12 +1,12 @@
 import React from 'react';
-import '../Pages/TransactionLogs.css';
+// import '../Pages/TransactionLogs.css';
 
-function TransactionLogs({ logs }) {
+function TransactionLogs({ logs, onClose }) {
   return (
     <div className='modal'>
       <div className='modal-content'>
       <table>
-      <thead>
+      <thead style={{ maxHeight: '300px', overflowY: 'auto'}}>
             <tr>
               <th colSpan="5">
                 <h3>Transaction Logs</h3>
@@ -32,6 +32,10 @@ function TransactionLogs({ logs }) {
           ))}
         </tbody>
         </table>
+        <br/>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

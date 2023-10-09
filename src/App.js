@@ -148,7 +148,7 @@ return (
             accounts={accountList} 
             onDeposit={handleDeposit} 
             onWithdraw={handleWithdraw} />} />
-        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={setAccountList} />} />
+        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} />} />
         <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
         <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
         <Route path="otherservices" element={<OtherServices accounts={accountList} />} />

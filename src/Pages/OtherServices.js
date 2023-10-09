@@ -15,24 +15,39 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [errorMessage, setErrorMessage] = useState('');
 
 const handleLogRequest = () => {
-
     // Check if the input fields are empty
-    if (!accountNumber || !fromDate || !toDate) {
-        setErrorMessage('Please input account number and transaction date coverage.');
-        return; // Don't proceed with fetching logs
-      }
+if (!accountNumber || !fromDate || !toDate) {
+    setErrorMessage('Please input account number and transaction date coverage.');
+    return; // Don't proceed with fetching logs
+    }
+  
 // Retrieve logs from local storage
 const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
+const fromDateObj = new Date(fromDate);
+const toDateObj = new Date(toDate);
 
-setLogs(storedLogs);
-setIsModalOpen(true);
-setErrorMessage('');
+const filteredLogs = storedLogs.filter((log) => {
+const logDate = new Date(log.date);
+// Adjust the comparison to consider the entire day
+  return (
+    log.account === accountNumber &&
+    logDate >= fromDateObj && logDate <= toDateObj
+  );
+});
+
+if (filteredLogs.length === 0) {
+  setErrorMessage('No transaction logs found for the specified account and date range.');
+  setIsModalOpen(false);
+} else {
+  setLogs(filteredLogs);
+  setIsModalOpen(true);
+  setErrorMessage('');
+}
+
+}
+const closeModal = () => {
+  setIsModalOpen(false); // Close the modal
 };
-
-  const closeModal = () => {
-    setIsModalOpen(false); // Close the modal
-  };
-
 return (
 <div>
     <div>
@@ -84,11 +99,8 @@ return (
         {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <TransactionLogs logs={logs}
+            <TransactionLogs logs={logs} onClose={closeModal} 
              />
-             <button className="close-button" onClick={closeModal}>
-              Close
-            </button>
           </div>
         </div>
       )}

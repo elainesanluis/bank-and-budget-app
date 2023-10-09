@@ -1,16 +1,24 @@
 // DepositForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../components/Styles.css';
 import {generateTransactionNumber} from '../components/TransactionNumber';
 
-function DepositForm({ accounts, updateTransactionDetails }) {
+function DepositForm({ accounts, updateTransactionDetails  }) {
   const [accountNumber, setAccountNumber] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  
+  useEffect(() => {
+    // Initialize local storage for transaction logs if not present
+    if (!localStorage.getItem('transactionLogs')) {
+      localStorage.setItem('transactionLogs', JSON.stringify([]));
+    }
+  }, []);
 
   const handleDeposit = () => {
     const transactionNumber = generateTransactionNumber('Deposit');
+
     // Find the account object based on the entered account number
     const selectedAccount = accounts.find(
       (account) => account.accountNumber === parseInt(accountNumber));
@@ -44,11 +52,26 @@ function DepositForm({ accounts, updateTransactionDetails }) {
         transactionDate,
       };
       updateTransactionDetails(updatedTransactionDetails);
+
+  // Log the deposit transaction
+  const transactionLog = {
+    date: transactionDate,
+    type: 'Deposit',
+    account: accountNumber,
+    amount: parseFloat(depositAmount),
+    transactionNumber,
+  };
+  // Retrieve existing logs from local storage or initialize an empty array
+    const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
+    // Update the logs with the new transaction log
+    const updatedLogs = [...storedLogs, transactionLog];
+    // Save the updated logs back to local storage
+      localStorage.setItem('transactionLogs', JSON.stringify(updatedLogs));
     } else {
       setErrorMessage('Please enter a valid deposit amount.');
       setSuccessMessage('');
     }
-
+  
     };
 
   return (
