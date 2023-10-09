@@ -31,7 +31,7 @@ body {
   .dashBoard {
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 180px 180px 150px 150px;
+    grid-template-rows: 180px 180px 100px 100px;
     column-gap: 10px;
     row-gap: 10px;
   }
@@ -48,6 +48,18 @@ body {
     background-color: #fff;
     border: solid #525151;
     border-radius: 5px;
+    height: 120px;
+    font-size: 70px;
+    font-weight: 900;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .budgetApp:hover {
+    color: rgb(179, 59, 59);
   }
   
   button:hover {

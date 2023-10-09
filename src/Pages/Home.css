@@ -71,7 +71,7 @@
   }
 
   body {
-    overflow-y: auto; 
+    overflow-y: hidden; 
   }
 
 .greetings {
@@ -84,7 +84,9 @@
 }
 
 .greetings:hover,.createAccount:hover, .addFeatures:hover, .userAccount:hover, .transactions:hover {
-  background-color: rgb(66, 63, 63, 0.15);
+  /* background-color: rgba(51, 47, 50, 0.2); */
+  background: rgb(187,183,173);
+  background: linear-gradient(0deg, rgba(187,183,173,1) 9%, rgba(82,78,77,1) 100%);
 }
 
 .totalbalance {
@@ -97,10 +99,5 @@
 .dashBoard {
   border: none;
 }
-
-.mainpage {
-  position: relative;
-}
-
 
 

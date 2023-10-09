@@ -65,7 +65,10 @@ function Home({ accounts }) {
             </Link>
         </div>
         </div>
-        <div className="budgetApp">Budget App</div>
+        <div>
+        </div>
+        <div className="budgetApp">Budget App
+        <i className="fa-solid fa-calculator"></i></div>
       </div>
     </div>
   );
