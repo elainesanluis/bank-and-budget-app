@@ -1,6 +1,5 @@
-//App.js
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import TransactionsPage from './Pages/TransactionsPage';
@@ -11,6 +10,7 @@ import WithdrawFormPage from './Pages/WithdrawForm';
 import Accounts from './Pages/Accounts';
 import OtherServices from './Pages/OtherServices';
 import { generateTransactionNumber } from './components/TransactionNumber';
+import NewTransactions from './Pages/NewTransactions-BudgetApp';
 
 function App() {
   const [accountList, setAccountList] = useState([
