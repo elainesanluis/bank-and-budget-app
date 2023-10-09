@@ -21,16 +21,7 @@ function App() {
     { firstName: 'JANE', lastName: 'DOE', clientBalance: 1000, accountNumber: 100112345683, createdAt: new Date(), userEmail: 'JANEDOE@GMAIL.COM'},
     { firstName: 'JOHN', lastName: 'DOE', clientBalance: 500, accountNumber: 100112345684, createdAt: new Date(), userEmail: 'JOHNDOE@GMAIL.COM'},
   ]);
-  const [transactionLogs, setTransactionLogs] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
-
-  const updateAccountList = (newAccountList) => {
-    setAccountList(newAccountList);
-  };
-
-  const updateTransactionLogs = (transactionDetails) => {
-    setTransactionLogs([...transactionLogs, transactionDetails]);
-  };
 
 const addAccount = (accountDetails) => {
 // Convert input names to uppercase for case-insensitive comparison
@@ -58,19 +49,6 @@ userEmail: userEmailUpper,
 
 setAccountList([...accountList, newAccount]);
 setErrorMessage('');
-
-const transactionDetails = {
-  type: 'Account Creation',
-  accountName: `${firstNameUpper} ${lastNameUpper}`,
-  accountNumber: newAccountNumber,
-  amount: 0, // Since no money is deposited when creating an account
-  transactionNumber: generateTransactionNumber('Account Creation'),
-  transactionTime: new Date().toLocaleTimeString(),
-  transactionDate: new Date().toLocaleDateString(),
-};
-updateTransactionLogs(transactionDetails);
-
-setErrorMessage('');
 return true;
 };
 
@@ -86,18 +64,6 @@ const handleDeposit = (accountName, amount) => {
     setAccountList(updatedAccounts);
 
     const selectedAccount = accountList.find((account) => account.firstName === accountName);
-
-    const transactionDetails = {
-      type: 'Deposit',
-      accountName: `${selectedAccount.firstName} ${selectedAccount.lastName}`,
-      accountNumber: selectedAccount.accountNumber,
-      amount: amount,
-      transactionNumber: generateTransactionNumber('Deposit'),
-      transactionTime: new Date().toLocaleTimeString(),
-      transactionDate: new Date().toLocaleDateString(),
-    };
-    
-    updateTransactionLogs(transactionDetails);
 
   };
 
@@ -123,7 +89,6 @@ const handleWithdraw = (accountName, amount) => {
         transactionTime: new Date().toLocaleTimeString(),
         transactionDate: new Date().toLocaleDateString(),
       };
-      updateTransactionLogs(transactionDetails);
     };
 
 const handleTransferMoney = (senderAccount, receiverAccount, amount) => {
@@ -156,8 +121,6 @@ const transactionDetails = {
   transactionTime: new Date().toLocaleTimeString(),
 };
 
-updateTransactionLogs(transactionDetails);
-
 };
 
 // Define the updateTransactionDetails function
@@ -177,7 +140,7 @@ return (
     <Router>
     <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={updateAccountList} />} />
+        <Route path="/accounts" element={<Accounts accounts={accountList} updateAccountList={setAccountList} />} />
         <Route path="/create-account" element={<CreateAccountPage addAccount={addAccount} accounts={accountList} errorMessage={errorMessage}/>} />
         <Route path="/transactions" 
           element={
@@ -185,9 +148,9 @@ return (
             accounts={accountList} 
             onDeposit={handleDeposit} 
             onWithdraw={handleWithdraw} />} />
-        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList}  />} />
-        <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList} />} />
-        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} updateAccountList={updateAccountList} />} />
+        <Route path="/deposit" element={<DepositFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails} updateAccountList={setAccountList} />} />
+        <Route path="/withdraw" element={<WithdrawFormPage accounts={accountList} updateTransactionDetails={updateTransactionDetails}  />} />
+        <Route path="/transfer" element={<TransferPage accounts={accountList} handleTransferMoney={handleTransferMoney} updateTransactionDetails={updateTransactionDetails} />} />
         <Route path="otherservices" element={<OtherServices accounts={accountList} />} />
     </Routes>
     </Router>

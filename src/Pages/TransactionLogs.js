@@ -3,8 +3,8 @@ import '../Pages/TransactionLogs.css';
 
 function TransactionLogs({ logs }) {
   return (
-    <div className='transactionlogsmodal'>
-      <div className='transactionlogstable'>
+    <div className='modal'>
+      <div className='modal-content'>
       <table>
       <thead>
             <tr>

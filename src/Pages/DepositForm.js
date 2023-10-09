@@ -1,10 +1,9 @@
 // DepositForm.js
 import React, { useState } from 'react';
-// import '../components/layout.css';
 import '../components/Styles.css';
-import {generateTransactionNumber } from '../components/TransactionNumber';
+import {generateTransactionNumber} from '../components/TransactionNumber';
 
-function DepositForm({ accounts, updateTransactionDetails}) {
+function DepositForm({ accounts, updateTransactionDetails }) {
   const [accountNumber, setAccountNumber] = useState('');
   const [depositAmount, setDepositAmount] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -34,12 +33,7 @@ function DepositForm({ accounts, updateTransactionDetails}) {
 
       const updatedClientBalance = selectedAccount.clientBalance + parseFloat(depositAmount);
       selectedAccount.clientBalance = updatedClientBalance;
-      
-      const updatedAccounts = accounts.map((account) =>
-        account.accountNumber === selectedAccount.accountNumber
-          ? selectedAccount
-          : account
-      );
+
       const updatedTransactionDetails = {
         type: 'Deposit',
         accountName: fullName,

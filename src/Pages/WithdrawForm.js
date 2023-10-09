@@ -37,6 +37,7 @@ function WithdrawForm({ accounts, updateTransactionDetails }) {
     const currentDate = new Date();
     const transactionTime = currentDate.toLocaleTimeString();
     const transactionDate = currentDate.toLocaleDateString();
+
     
     const updatedTransactionDetails = {
       type: 'Withdrawal',

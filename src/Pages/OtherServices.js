@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../Pages/OtherServices.css';
+import '../Pages/TransactionLogs.css';
 import TransactionLogs from '../Pages/TransactionLogs'; 
 
 function OtherServices() {
@@ -20,33 +21,13 @@ const handleLogRequest = () => {
         setErrorMessage('Please input account number and transaction date coverage.');
         return; // Don't proceed with fetching logs
       }
+// Retrieve logs from local storage
+const storedLogs = JSON.parse(localStorage.getItem('transactionLogs')) || [];
 
-      const fetchedLogs = [{
-        date: '2023-10-01',
-        type: 'Deposit',
-        account: '100112345679',
-        amount: 100,
-        transactionNumber: 'TXN12345',
-      },
-      {
-        date: '2023-10-02',
-        type: 'Withdraw',
-        account: '100112345679',
-        amount: 50,
-        transactionNumber: 'TXN12346',
-      },
-    ]; 
-    const filteredLogs = fetchedLogs.filter((log) => {
-        return (
-          log.account === accountNumber &&
-          log.date >= fromDate &&
-          log.date <= toDate
-        );
-      });
-  setLogs(filteredLogs);
-  setIsModalOpen(true);
-  setErrorMessage('');
-  };
+setLogs(storedLogs);
+setIsModalOpen(true);
+setErrorMessage('');
+};
 
   const closeModal = () => {
     setIsModalOpen(false); // Close the modal
@@ -103,10 +84,11 @@ return (
         {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <button className="close-button" onClick={closeModal}>
+            <TransactionLogs logs={logs}
+             />
+             <button className="close-button" onClick={closeModal}>
               Close
             </button>
-            <TransactionLogs logs={logs} />
           </div>
         </div>
       )}

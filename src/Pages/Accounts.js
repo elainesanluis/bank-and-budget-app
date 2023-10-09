@@ -42,6 +42,7 @@ function AccountsPage({ accounts, updateAccountList }) {
       // Update the account list state with the edited data
       updateAccountList(updatedAccounts);
     }
+  
   };
 
   return (

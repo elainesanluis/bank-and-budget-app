@@ -6,7 +6,7 @@ import { generateTransactionNumber } from '../components/TransactionNumber';
 import TransferDetailsModal from '../Pages/TransferDetailsModal'; 
 import logo from '../images/logo.png';
 
-function TransferPage({accounts, handleTransferMoney, updateTransactionDetails }) {
+function TransferPage({accounts, handleTransferMoney, updateTransactionDetails, updateTransactionLogs }) {
   
   const [senderAccount, setSenderAccount] = useState('');
   const [receiverAccount, setReceiverAccount] = useState('');
@@ -95,6 +95,20 @@ const updatedReceiverAccount = {
 setSenderAccount('');       // Clear sender account input
 setReceiverAccount('');     // Clear receiver account input
 setTransferAmount('');      // Clear transfer amount input
+
+// Create a new transaction log object
+const transactionLog = {
+  date: transactionDate,
+  time: transactionTime,
+  type: 'Transfer',
+  senderAccount: senderAccountObj.accountNumber,
+  receiverAccount: receiverAccountObj.accountNumber,
+  amount: transferAmountFloat,
+  transactionNumber,
+};
+
+// Call the updateTransactionLogs function to store the transaction log
+updateTransactionLogs(transactionLog);
 
 const currentDate = new Date();
     const transactionTime = currentDate.toLocaleTimeString();
