@@ -11,7 +11,7 @@ function DeleteAccountModal({ isOpen, onClose, onDelete, account }) {
   };
 
   return (
-    <div className={`"delete-account-modal" ${isOpen ? 'open' : ''}`}>
+    <div className={`delete-account-modal ${isOpen ? 'open' : ''}`}>
       <div className="delete-account-modal-content">
         <h2>Confirm Deletion</h2>
         <p>Do you want to delete this account?</p>
@@ -23,8 +23,8 @@ function DeleteAccountModal({ isOpen, onClose, onDelete, account }) {
           <p><strong>Email:</strong> {account.userEmail}</p>
         </div>
         <div className="modal-buttons">
-          <button onClick={handleDelete}>Delete Account</button>
-          <button onClick={onClose}>Cancel</button>
+          <button className='delete-account delete-modal-buttons' onClick={handleDelete}>Delete</button>
+          <button className='cancel-delete-account delete-modal-buttons' onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>
