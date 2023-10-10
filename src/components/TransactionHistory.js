@@ -80,8 +80,8 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                   <td>{transaction.amount}</td>
                   <td>{transaction.owner}</td>
                   <td>
-                    <button onClick={() => openEditModal(transaction)}>Edit</button>
-                    <button onClick={() => openDeleteModal(transaction.id)}>Delete</button>
+                    <button className='transaction-history-buttons' onClick={() => openEditModal(transaction)}>Edit</button>
+                    <button className='transaction-history-buttons' onClick={() => openDeleteModal(transaction.id)}>Delete</button>
                   </td>
                 </tr>
                 ))}
@@ -164,8 +164,10 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                           })
                         }
                       /><br></br>
+                      <div>
                       <button onClick={closeEditModal}>Cancel</button>
                       <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
+                      </div>
                     </form>
                   </div>
                 ) : (

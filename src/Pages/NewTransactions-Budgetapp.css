@@ -163,3 +163,8 @@ body {
     padding-top: 20px;
     margin-top: 50px;
 }
+
+.transaction-history-buttons {
+   align-items: center;
+   margin-right: 5px;
+}
