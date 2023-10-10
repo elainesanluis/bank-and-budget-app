@@ -4,7 +4,7 @@
     margin-left: 20px;
   }
 
-  .dashboard:hover {
+.dashboard:hover {
     color: rgb(179, 59, 59);
   }
 
@@ -94,11 +94,12 @@
 }
 
 .addBudget {
-    width: 90px;
+    width: 120px;
     height: 30px;
     color: #fff;
     background-color: black;
-    border-radius: 3px;
     align-self: center;
     justify-self: center;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
