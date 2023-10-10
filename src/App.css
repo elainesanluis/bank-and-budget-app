@@ -199,3 +199,60 @@ p.accountBalance-ui {
   background-color: white;
   color:rgb(179, 59, 59);
 }
+
+.transactions-history-delete-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+}
+
+.transactions-history-delete-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.transactions-history-delete-container {
+  position: absolute;
+  top: 5%;
+  left: 1%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 600px;
+  background-color: rgba(96, 66, 66, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+}
+
+.transactions-history-delete-cancel, .transactions-history-delete-delete {
+  background-color: rgb(179, 59, 59);
+  color: white;
+  font-size: 20px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.transactions-history-delete-cancel {
+  margin-right: 10px;
+}
+
+.transactions-history-delete-delete {
+  margin-left: 10px;
+}
+
+.transactions-history-delete-cancel:hover, .transactions-history-delete-delete:hover {
+  background-color: white;
+  color: rgb(179, 59, 59);
+}

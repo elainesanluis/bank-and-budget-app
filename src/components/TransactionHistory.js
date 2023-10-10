@@ -181,11 +181,15 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                     </div>
                   </div>
                 ) : (
-              <div>
+              <div className='transactions-history-delete-container'>
+              <div className='transactions-history-delete-div'>
                     <h2>Confirm Delete</h2>
                     <p>Are you sure you want to delete this transaction?</p>
-                    <button onClick={closeEditModal}>Cancel</button>
-                   <button onClick={confirmDeleteTransaction}>Delete</button>
+                    <div className='transactions-history-delete-buttons'>
+                    <button className='transactions-history-delete-cancel' onClick={closeEditModal}>Cancel</button>
+                   <button className='transactions-history-delete-delete' onClick={confirmDeleteTransaction}>Delete</button>
+                   </div>
+                   </div>
                   </div>
                 )}
                 </Modal>
