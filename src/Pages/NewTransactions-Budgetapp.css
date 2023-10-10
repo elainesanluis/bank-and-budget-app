@@ -168,6 +168,9 @@ body {
 .transaction-history-buttons {
    align-items: center;
    margin-right: 5px;
+   background-color: inherit;
+   border: white;
+   outline: none;
 }
 
 .form-control {
