@@ -43,8 +43,9 @@ return (
     return (
         <>
         <div className='accountBalance'>
-            <p>Budget Balance: &#8369;{balance.toFixed(2)}</p>
+            <p className='accountBalance-ui'>Budget Balance: <span className='accountBalance-ui-peso'> &#8369;{balance.toFixed(2)}</span></p>
             <button className='addBudget' onClick={openModal}>Add budget</button>
+            <br/>
         </div>
         <ModalComponent isOpen={isModalOpen} onClose={closeModal} />
         </>

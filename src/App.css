@@ -82,3 +82,66 @@ body {
 .budget-app-calculator:hover {
   color: rgb(179, 59, 59);
 }
+
+.total-expense-div, .accountBalance {
+  border: 1px solid black;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.total-expense-div {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-left: 10px;
+  width: 400px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  font-weight: 700;
+  border-top: 3px solid black;
+}
+
+.accountBalance {
+  font-weight: 700;
+  padding-top: 0;
+  padding-left: 10px;
+  margin-top: 0px;
+  border-top: none;
+  width: 400px;
+  height: 120px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: 3px solid black;
+}
+
+p.accountBalance-ui {
+  padding-top: 0;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-top: none;
+}
+
+.total-expense-div-ui {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  
+}
+
+.addBudget {
+  padding: 5px 5px;
+  font-size: 15px;
+}
+
+.addBudget:hover {
+  background-color: rgb(133, 15, 15);
+  color: white;
+}
+
+.accountBalance-ui-peso {
+  color: green;
+}
+
+.total-expense-div-peso {
+  color: rgb(133, 15, 15);
+}
