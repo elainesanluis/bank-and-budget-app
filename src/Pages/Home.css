@@ -84,7 +84,7 @@
 }
 
 .greetings:hover,.createAccount:hover, .addFeatures:hover, .userAccount:hover, .transactions:hover {
-background-color: rgba(51, 47, 50, 0.2);
+background-color: rgba(221, 205, 209, 0.2);
 }
 
 .totalbalance {
@@ -97,5 +97,4 @@ background-color: rgba(51, 47, 50, 0.2);
 .dashBoard {
   border: none;
 }
-
 
