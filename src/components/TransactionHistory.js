@@ -94,13 +94,15 @@ export default function TransactionHistory({ transactions, setTransactions }) {
               ariaHideApp={false}
             >
             {modalMode === 'edit' && editTransactionData.id ? (
-              <div>
+              <div className='edit-transactions-wrapper'>
+              <div className='edit-transactions-container'>
                 <h2>Edit Transaction</h2>
                 <form>
-                  <label htmlFor="owner">Owner/Payee: </label>
+                  <label htmlFor="owner" className='edit-transactions-label'>Owner/Payee: </label>
                     <input
                     type="text"
                     id="owner"
+                    className='edit-transactions-input'
                     value={editTransactionData.owner}
                     onChange={(e) =>
                     setEditTransactionData({
@@ -109,8 +111,9 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                     })
                     }
                     /><br></br>
-                  <label htmlFor="selectCategory">Category: </label>
+                  <label htmlFor="selectCategory" className='edit-transactions-label'>Category: </label>
                     <select
+                    className='edit-transactions-input'
                       id="selectCategory"
                       value={editTransactionData.selectCategory}
                       onChange={(e) => setEditTransactionData({...editTransactionData, selectCategory: e.target.value,})
@@ -128,8 +131,9 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                         <option value="Subscriptions">Subscriptions</option>
                       </select>
                       <br></br>
-                      <label htmlFor="text">Name of Expense: </label>
+                      <label htmlFor="text" className='edit-transactions-label'>Name of Expense: </label>
                       <input
+                      className='edit-transactions-input'
                         type="text"
                         id="name-of-tranx"
                         value={editTransactionData.text}
@@ -140,8 +144,9 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                           })
                         }
                       /><br></br>
-                      <label htmlFor="amount">Amount: </label>
+                      <label htmlFor="amount" className='edit-transactions-label'>Amount: </label>
                       <input
+                      className='edit-transactions-input'
                         type="number"
                         id="amount"
                         value={editTransactionData.amount}
@@ -152,8 +157,9 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                           })
                         }
                       /><br></br>
-                      <label htmlFor="date">Date: </label>
+                      <label htmlFor="date" className='edit-transactions-label'>Date: </label>
                       <input
+                      className='edit-transactions-input'
                         type="date"
                         id="date"
                         value={editTransactionData.date}
@@ -165,10 +171,14 @@ export default function TransactionHistory({ transactions, setTransactions }) {
                         }
                       /><br></br>
                       <div>
-                      <button onClick={closeEditModal}>Cancel</button>
-                      <button onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
+                        <br/>
+                        <div className='edit-transactions-cancel-save'>
+                      <button className='edit-transactions-cancel' onClick={closeEditModal}>Cancel</button>
+                      <button className='edit-transactions-save' onClick={() => saveEditedTransaction(editTransactionData)}>Save</button>
+                      </div>
                       </div>
                     </form>
+                    </div>
                   </div>
                 ) : (
               <div>
