@@ -98,3 +98,6 @@ background-color: rgba(221, 205, 209, 0.2);
   border: none;
 }
 
+.today {
+  font-size: 20px;
+}

@@ -26,7 +26,6 @@ export default function NewTransactions() {
   
       setTotalTransactions(temp);
     }, [transactions]);
- 
 
   return (
     <div>

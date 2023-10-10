@@ -21,7 +21,8 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   const ModalComponent = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
-}
+};
+
 
 return (
   <div className='modal'>

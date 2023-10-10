@@ -64,8 +64,8 @@ export default function TransactionHistory({ transactions, setTransactions }) {
               <thead>
                 <tr>
                   <th className='transaction-history-header'>Date</th>
-                  <th className='transaction-history-header'>Category</th>
-                  <th className='transaction-history-header'>Text</th>
+                  <th className='transaction-history-header'>Expense Category</th>
+                  <th className='transaction-history-header'>Description</th>
                   <th className='transaction-history-header'>Amount</th>
                   <th className='transaction-history-header'>Owner</th>
                   <th className='transaction-history-header'>Actions</th>
