@@ -82,10 +82,9 @@ export default function Home({ accounts }) {
         </div>
         <div>
         </div>
-        <Link to="/new-transactions">
+        
         <div className="budgetApp">Budget App
-        <i className="fa-solid fa-calculator"></i></div>
-        </Link>
+        <Link to="/new-transactions"><i className="fa-solid fa-calculator budget-app-calculator"></i></Link></div>
         </div>
         </div>
   );
