@@ -63,12 +63,12 @@ export default function TransactionHistory({ transactions, setTransactions }) {
             <table>
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Category</th>
-                  <th>Text</th>
-                  <th>Amount</th>
-                  <th>Owner</th>
-                  <th>Actions</th>
+                  <th className='transaction-history-header'>Date</th>
+                  <th className='transaction-history-header'>Category</th>
+                  <th className='transaction-history-header'>Text</th>
+                  <th className='transaction-history-header'>Amount</th>
+                  <th className='transaction-history-header'>Owner</th>
+                  <th className='transaction-history-header'>Actions</th>
                 </tr>
               </thead>
               <tbody>

@@ -45,8 +45,10 @@ const PieChartComponent = ({ transactions }) => {
   };
 
   return (
+    <div className='pie-chart-container'>
     <div className="pie-chart">
       <Pie data={data} />
+    </div>
     </div>
   );
 };

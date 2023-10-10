@@ -29,13 +29,15 @@ return (
       <span className='close' onClick={onClose}>
         &times;
       </span>
-      <p>Enter an amount:</p>
+      <p className='modal-content-enter-amount'>Enter an amount:</p>
       <input
+      className='modal-content-input'
         type='number'
         value={amountToAdd}
         onChange={(e) => setAmountToAdd(parseFloat(e.target.value))}
       />
-      <button onClick={addToBalance}>Add to Balance</button>
+      <br/>
+      <button className='modal-content-button' onClick={addToBalance}>Add to Balance</button>
     </div>
   </div>
 );

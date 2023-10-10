@@ -16,19 +16,21 @@
 
 .title-newtranx {
     font-size: 30px;
-    margin-left: 420px;
     margin-top: 50px;
 }
 
 .form-newtranx {
-    background-color: rgba(73, 165, 240, 0.7);
+    background-color: rgba(135, 111, 75, 0.454); 
     padding: 20px;
-    width: 50%;
-    border-radius: 5px;
+    width: 1200px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    border: 3px solid black;
   }
 
 .box {
@@ -83,14 +85,16 @@
 
 .btn-newtranx {
     grid-area: 3 / 3 / 4 / 4;
+    padding: 2px 10px;
     margin-top: 10px;
-    width: 120px;
+    width: 180px;
     height: 40px;
     color: #fff;
     background-color: black;
-    border-radius: 3px;
+    border-radius: 5px;
     align-self: center;
     justify-self: center;
+    font-size: 18px;
 }
 
 .addBudget {
@@ -102,4 +106,60 @@
     justify-self: center;
     padding: 5px 10px;
     border-radius: 5px;
+    font-size: 16px;
   }
+
+.div-newtranx {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    overflow: auto;
+}
+
+.modal-content-enter-amount {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.modal-content-input, .modal-content-button {
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.modal-content-button {
+    padding: 5px;
+}
+
+.modal-content-button:hover {
+    background-color: rgb(111, 8, 8);
+    color: white;
+}
+
+.tranx-history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.transaction-history-header {
+    background-color: rgb(111, 8, 8);
+}
+
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-chart {
+    padding-top: 20px;
+    margin-top: 50px;
+}
