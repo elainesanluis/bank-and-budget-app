@@ -32,7 +32,7 @@ export default function NewTransactions() {
     <div>
       <div id='back-to-home'>
         <Link style={{textDecoration: 'none', fontSize: '30px'}} to="/">
-          <p className='dashboard'>&#10229;</p>
+          <p className='dashboard'><i class="fa-solid fa-house"></i></p>
         </Link>
       </div>
       <div className='new-tranx'>
